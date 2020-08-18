@@ -1,0 +1,3621 @@
+{
+  "Vehicle": {
+    "type": "branch",
+    "children": {
+      "Powertrain": {
+        "description": "Powertrain data for battery management, etc.",
+        "uuid": "12f35ec7bd1c58d1a329565ce3d053d5",
+        "type": "branch",
+        "children": {
+          "PowerSource": {
+            "type": "branch",
+            "children": {
+              "CombustionEngine": {
+                "type": "branch",
+                "children": {
+                  "Configuration": {
+                    "default": "unknown",
+                    "description": "Engine configuration.",
+                    "uuid": "a8082c05d201532195ed0f92e6768df0",
+                    "enum": [
+                      "unknown",
+                      "straight",
+                      "V",
+                      "boxer",
+                      "W",
+                      "rotary",
+                      "radial",
+                      "square",
+                      "H",
+                      "U",
+                      "opposed",
+                      "X"
+                    ],
+                    "type": "attribute",
+                    "datatype": "string"
+                  },
+                  "FuelType": {
+                    "default": "unknown",
+                    "description": "Type of fuel that the engine runs on.",
+                    "uuid": "17014970f36e516aac11ce77b6ed2ed0",
+                    "enum": [
+                      "unknown",
+                      "gasoline",
+                      "diesel",
+                      "E85",
+                      "CNG"
+                    ],
+                    "type": "attribute",
+                    "datatype": "string"
+                  },
+                  "MaxTorque": {
+                    "type": "attribute",
+                    "description": "Peak power, in newton meter, that the engine can generate.",
+                    "uuid": "bd4818c456665a39b901a480e3c3513e",
+                    "default": 0,
+                    "datatype": "uint16",
+                    "unit": "N.m"
+                  },
+                  "MaxPower": {
+                    "default": 0,
+                    "description": "Peak power, in kilowatts, that engine can generate.",
+                    "uuid": "dfec1a8a4d3656c6a10ac87f4ad2086f",
+                    "type": "attribute",
+                    "datatype": "uint16",
+                    "unit": "kW"
+                  },
+                  "Displacement": {
+                    "type": "attribute",
+                    "datatype": "uint16",
+                    "unit": "cm3",
+                    "description": "Displacement in cubic centimetres.",
+                    "uuid": "d7b24c3e31d85424806b67f04cbfa76d"
+                  },
+                  "Engine": {
+                    "type": "branch",
+                    "children": {
+                      "AmbientAirTemperature": {
+                        "type": "sensor",
+                        "unit": "celsius",
+                        "description": "Ambient (Outside) air temperature",
+                        "uuid": "45683bc835135b81a78d0b276d797907",
+                        "datatype": "float"
+                      },
+                      "MAP": {
+                        "min": 0,
+                        "description": "Manifold air pressure possibly boosted using forced induction.",
+                        "uuid": "595480144e4051549f1507b8b146fe9a",
+                        "type": "sensor",
+                        "datatype": "int16",
+                        "max": 1000,
+                        "unit": "kpa"
+                      },
+                      "EOP": {
+                        "min": 0,
+                        "description": "Engine oil pressure.",
+                        "uuid": "22591b2a22a65acda4db8fb901b020b2",
+                        "type": "sensor",
+                        "datatype": "int16",
+                        "max": 1000,
+                        "unit": "kpa"
+                      },
+                      "EOT": {
+                        "min": -50,
+                        "description": "Engine oil temperature.",
+                        "uuid": "e298306d4d34559c8d967e3ed210d3d2",
+                        "type": "sensor",
+                        "datatype": "int16",
+                        "max": 300,
+                        "unit": "celsius"
+                      },
+                      "Speed": {
+                        "min": 0,
+                        "description": "Engine speed measured as rotations per minute.",
+                        "uuid": "9d4f9a8fc0da52418058dc9c0d66ad8d",
+                        "type": "sensor",
+                        "datatype": "uint16",
+                        "max": 20000,
+                        "unit": "rpm"
+                      },
+                      "TPS": {
+                        "min": 0,
+                        "description": "Current throttle position.",
+                        "uuid": "9c2caa8645835875bc12841283f2c489",
+                        "type": "sensor",
+                        "datatype": "int8",
+                        "max": 100,
+                        "unit": "percent"
+                      },
+                      "ECT": {
+                        "min": -50,
+                        "description": "Engine coolant temperature.",
+                        "uuid": "79296c63ef5f5621b9df7e5376294e40",
+                        "type": "sensor",
+                        "datatype": "int16",
+                        "max": 200,
+                        "unit": "celsius"
+                      },
+                      "MAF": {
+                        "min": 0,
+                        "description": "Grams of air drawn into engine per second.",
+                        "uuid": "64a1b684c8ea5b218f6315b48042f725",
+                        "type": "sensor",
+                        "datatype": "int16",
+                        "max": 3000,
+                        "unit": "g/s"
+                      },
+                      "Power": {
+                        "min": 0,
+                        "description": "Current engine power output.",
+                        "uuid": "81ea151c6595510ba75da04da6005c03",
+                        "type": "sensor",
+                        "datatype": "int16",
+                        "max": 2000,
+                        "unit": "kW"
+                      },
+                      "Torque": {
+                        "min": 0,
+                        "description": "Current engine torque.",
+                        "uuid": "fc0f07adfa1751ce966ef282a5995894",
+                        "type": "sensor",
+                        "datatype": "int16",
+                        "max": 3000,
+                        "unit": "N.m"
+                      }
+                    },
+                    "description": "Engine signals",
+                    "uuid": "4da684a76b84597cbab91428ce20b4c7"
+                  }
+                },
+                "description": "Engine-specific data, stopping at the bell housing.",
+                "uuid": "aeaad364b0aa5f15bc850803d365a3d1"
+              },
+              "ElectricMotor": {
+                "type": "branch",
+                "children": {
+                  "MaxTorque": {
+                    "type": "attribute",
+                    "description": "Peak power, in newton meter, that the motor(s) can generate.",
+                    "uuid": "1589cee72a3f5b8aa250588d57333597",
+                    "default": 0,
+                    "datatype": "uint16",
+                    "unit": "N.m"
+                  },
+                  "Motor": {
+                    "type": "branch",
+                    "children": {
+                      "Rpm": {
+                        "min": -100000,
+                        "description": "Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.",
+                        "uuid": "a73cf9116696520aa3c3884ccc23c25e",
+                        "type": "sensor",
+                        "datatype": "Uint32",
+                        "max": 100000,
+                        "unit": "rpm"
+                      },
+                      "CoolantTemperature": {
+                        "min": -50,
+                        "description": "Motor coolant temperature (if applicable).",
+                        "uuid": "13f04d9f429a59ef8c3a1fdf1953973e",
+                        "type": "sensor",
+                        "datatype": "int16",
+                        "max": 200,
+                        "unit": "celsius"
+                      },
+                      "Temperature": {
+                        "min": -50,
+                        "description": "Motor temperature.",
+                        "uuid": "ef897efb73615713a60ec8cfd24ef624",
+                        "type": "sensor",
+                        "datatype": "int16",
+                        "max": 200,
+                        "unit": "celsius"
+                      },
+                      "Power": {
+                        "min": -2000,
+                        "description": "Current motor power output. Negative values indicate regen mode.",
+                        "uuid": "3fe52bf3a98454c198b589b2aab324a5",
+                        "type": "sensor",
+                        "datatype": "int16",
+                        "max": 2000,
+                        "unit": "kW"
+                      },
+                      "Torque": {
+                        "min": -5000,
+                        "description": "Current motor torque. Negative values indicate regen mode.",
+                        "uuid": "a1938cf939d554db93f5504343abba41",
+                        "type": "sensor",
+                        "datatype": "int16",
+                        "max": 5000,
+                        "unit": "N.m"
+                      }
+                    },
+                    "description": "motor signals",
+                    "uuid": "15199aa641ec54efb86799954096cd6f"
+                  },
+                  "MaxPower": {
+                    "default": 0,
+                    "description": "Peak power, in kilowatts, that motor(s) can generate.",
+                    "uuid": "12fdbab5593c578abb8fe00bdf5238d2",
+                    "type": "attribute",
+                    "datatype": "uint16",
+                    "unit": "kW"
+                  },
+                  "MaxRegenPower": {
+                    "default": 0,
+                    "description": "Peak regen/brake power, in kilowatts, that motor(s) can generate.",
+                    "uuid": "ab07a8c18e7d5f40aa9c1a7b00e79d6d",
+                    "type": "attribute",
+                    "datatype": "uint16",
+                    "unit": "kW"
+                  },
+                  "MaxRegenTorque": {
+                    "type": "attribute",
+                    "description": "Peak regen/brake torque, in newton meter, that the motor(s) can generate.",
+                    "uuid": "a55eac86e975523cb01468bf1d3f52d8",
+                    "default": 0,
+                    "datatype": "uint16",
+                    "unit": "N.m"
+                  }
+                },
+                "description": "Electric Motor specific data.",
+                "uuid": "b0efe1bbf54a5f748f9356eaf9dfb9fb"
+              }
+            },
+            "description": "Powertrain data for power sources (combustion engines, electric motors, etc.)",
+            "uuid": "6c88b95c8f7558558a257f8dbe3a6c18"
+          },
+          "AccumulatedBrakingEnergy": {
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "kWh",
+            "description": "The accumulated energy from regenerative braking over lifetime.",
+            "uuid": "0dd466d28d3d5ad094f2015adafb91a5"
+          },
+          "Transmission": {
+            "type": "branch",
+            "children": {
+              "Temperature": {
+                "min": -50,
+                "description": "The current gearbox temperature",
+                "uuid": "4f5e48c3511b5e1abff11aa7ec62dd18",
+                "type": "sensor",
+                "datatype": "int16",
+                "max": 200,
+                "unit": "celsius"
+              },
+              "GearCount": {
+                "value": 0,
+                "type": "attribute",
+                "datatype": "uint8",
+                "description": "Number of forward gears in the transmission. -1 = CVT.",
+                "uuid": "84293f40d3ed57f1a08992d97b1a9ccd"
+              },
+              "Speed": {
+                "min": -250,
+                "unit": "km/h",
+                "description": "Vehicle speed, as sensed by the gearbox.",
+                "uuid": "080c5c7a7a8f512a858f84cd678d09cb",
+                "type": "sensor",
+                "datatype": "int32",
+                "max": 250
+              },
+              "TravelledDistance": {
+                "type": "sensor",
+                "datatype": "float",
+                "unit": "km",
+                "description": "Odometer reading",
+                "uuid": "b9dd66f20c7f5b12a046766b94dc20c1"
+              },
+              "Type": {
+                "description": "Transmission type.",
+                "uuid": "f83b9e5464d85a0288fcb32c164d3c63",
+                "enum": [
+                  "unknown",
+                  "sequential",
+                  "H",
+                  "automatic",
+                  "DSG",
+                  "CVT"
+                ],
+                "value": "unknown",
+                "type": "attribute",
+                "datatype": "string"
+              },
+              "GearChangeMode": {
+                "type": "actuator",
+                "datatype": "string",
+                "description": "Is the gearbox in automatic or manual (paddle) mode.",
+                "uuid": "ff3c69378c2f598286e51f7dac13adaa",
+                "enum": [
+                  "manual",
+                  "automatic"
+                ]
+              },
+              "PerformanceMode": {
+                "type": "actuator",
+                "datatype": "string",
+                "description": "Current gearbox performance mode.",
+                "uuid": "6b5cfd85cb595e559503ccf993be04dd",
+                "enum": [
+                  "normal",
+                  "sport",
+                  "economy",
+                  "snow",
+                  "rain"
+                ]
+              },
+              "DriveType": {
+                "description": "Drive type.",
+                "uuid": "0e480b76fb2d5f8bb08fb586f90ee6ae",
+                "enum": [
+                  "unknown",
+                  "forward wheel drive",
+                  "rear wheel drive",
+                  "all wheel drive"
+                ],
+                "value": "unknown",
+                "type": "attribute",
+                "datatype": "string"
+              },
+              "ClutchWear": {
+                "type": "sensor",
+                "datatype": "uint8",
+                "unit": "percent",
+                "description": "Clutch wear as a percent. 0 = no wear. 100 = worn.",
+                "uuid": "c113405ad165571a9d53ae4cf55dc929"
+              },
+              "Gear": {
+                "min": -1,
+                "description": "Current gear. 0=Neutral. -1=Reverse",
+                "uuid": "d72df16818e75f71b9fffdff8250e9b9",
+                "type": "actuator",
+                "datatype": "int8",
+                "max": 16
+              }
+            },
+            "description": "Transmission-specific data, stopping at the drive shafts.",
+            "uuid": "6b71e284b63a527caa6296a66e9fdd0c"
+          },
+          "EnergyStorage": {
+            "type": "branch",
+            "children": {
+              "FuelSystem": {
+                "type": "branch",
+                "children": {
+                  "EngineStopStartEnabled": {
+                    "type": "sensor",
+                    "datatype": "boolean",
+                    "description": "Indicates whether eco start stop is currently enabled",
+                    "uuid": "eef6555638725023b7d6f3ed52adb2ba"
+                  },
+                  "TimeSinceStart": {
+                    "type": "sensor",
+                    "datatype": "uint32",
+                    "unit": "s",
+                    "description": "Time elapsed since start in seconds.",
+                    "uuid": "f106a52d1b8d5541820c06f498847098"
+                  },
+                  "FuelType": {
+                    "default": "unknown",
+                    "description": "Defines the fuel type of the vehicle",
+                    "uuid": "7b17696fc26f5bdc84268990664288e3",
+                    "enum": [
+                      "unknown",
+                      "gasoline",
+                      "diesel",
+                      "electric",
+                      "hybrid",
+                      "E85",
+                      "CNG",
+                      "LPG"
+                    ],
+                    "type": "attribute",
+                    "datatype": "string"
+                  },
+                  "AverageConsumption": {
+                    "min": 0,
+                    "description": "Average consumption in liters per 100 km.",
+                    "uuid": "5ae2839784a45785bc3fc6677ecec090",
+                    "type": "sensor",
+                    "datatype": "float",
+                    "unit": "l/100km"
+                  },
+                  "ConsumptionSinceStart": {
+                    "type": "sensor",
+                    "datatype": "float",
+                    "unit": "l",
+                    "description": "Fuel amount consumed since start in liters.",
+                    "uuid": "d3627d6ae8bc5f6bbf871dcaa9d4aa01"
+                  },
+                  "LowFuelLevel": {
+                    "type": "sensor",
+                    "datatype": "boolean",
+                    "description": "Indicates that the fuel level is low (e.g. <50km range)",
+                    "uuid": "5118861236be501fbc8385cc55f74deb"
+                  },
+                  "Level": {
+                    "min": 0,
+                    "description": "Level in fuel tank as percent of capacity. 0 = empty. 100 = full.",
+                    "uuid": "b3a4e2f57177584c843ceeb30b351e04",
+                    "type": "sensor",
+                    "datatype": "uint8",
+                    "max": 100,
+                    "unit": "percent"
+                  },
+                  "HybridType": {
+                    "type": "attribute",
+                    "description": "Defines the hybrid type of the vehicle",
+                    "uuid": "a7c3f14fca665fe093bd687bf15d7e64",
+                    "enum": [
+                      "unknown",
+                      "not_applicable",
+                      "stop_start",
+                      "belt_ISG",
+                      "CIMG",
+                      "PHEV"
+                    ],
+                    "default": "unknown",
+                    "datatype": "string"
+                  },
+                  "Range": {
+                    "type": "sensor",
+                    "datatype": "uint32",
+                    "unit": "m",
+                    "description": "Range in meters.",
+                    "uuid": "ec7e69ae0f98517c8306f7d464997de7"
+                  },
+                  "TankCapacity": {
+                    "description": "Capacity of the fuel tank in liters",
+                    "uuid": "7d3f4e3c4c795dac93d5496071236c6a",
+                    "value": 0,
+                    "type": "attribute",
+                    "datatype": "uint16",
+                    "unit": "l"
+                  },
+                  "InstantConsumption": {
+                    "min": 0,
+                    "description": "Current consumption in liters per 100 km.",
+                    "uuid": "c01ad71ba0315cf1b4fe3e5f74548258",
+                    "type": "sensor",
+                    "datatype": "float",
+                    "unit": "l/100km"
+                  }
+                },
+                "description": "Fuel system data.",
+                "uuid": "2ef65b5c8e875276b6b4af7400cb7c72"
+              },
+              "FuelCell": {
+                "type": "branch",
+                "children": {},
+                "description": "Fuel Cell data.",
+                "uuid": "2dd789a10fb6579ab1bc717c8bc63af9"
+              },
+              "Battery": {
+                "type": "branch",
+                "children": {
+                  "Battery": {
+                    "type": "branch",
+                    "children": {
+                      "ReferentVoltage": {
+                        "type": "attribute",
+                        "datatype": "uint16",
+                        "description": "Referent Voltage of the battery",
+                        "unit": "V",
+                        "uuid": "02503ab9fa395b3fb0b56a89831414c9"
+                      },
+                      "NominalVoltage": {
+                        "unit": "V",
+                        "type": "attribute",
+                        "description": "Nominal Voltage of the battery",
+                        "uuid": "07865333b5a35507b1ea5c68032ed776",
+                        "datatype": "uint16"
+                      },
+                      "StateOfCharge": {
+                        "type": "branch",
+                        "children": {
+                          "Target": {
+                            "min": 0,
+                            "description": "Target state of charge set (eg. by customer).",
+                            "uuid": "64d9fd4c059f5a488aa7a55305a6ab6d",
+                            "type": "actuator",
+                            "datatype": "UInt8",
+                            "max": 100,
+                            "unit": "percent"
+                          },
+                          "Current": {
+                            "min": 0,
+                            "children": {},
+                            "type": "branch",
+                            "unit": "percent",
+                            "description": "Physical state of charge of the high voltage battery. This is not necessarily the state of charge being displayed to the customer.",
+                            "uuid": "410d1e28b3285859b94087cec5771155",
+                            "datatype": "Float",
+                            "max": 100.0
+                          },
+                          "Displayed": {
+                            "min": 0,
+                            "description": "State of charge displayed to the customer.",
+                            "uuid": "69e695d71e4b5692b652f7e5c717d0ac",
+                            "type": "sensor",
+                            "datatype": "Float",
+                            "max": 100.0,
+                            "unit": "percent"
+                          }
+                        },
+                        "description": "Information on the state of charge of the vehicle's high voltage battery.",
+                        "uuid": "868c80c29f0d57ffb7144b371aec72ce"
+                      },
+                      "AccumulatedChargedEnergy": {
+                        "type": "sensor",
+                        "datatype": "float",
+                        "unit": "kWh",
+                        "description": "The accumulated energy delivered to the battery during charging over lifetime.",
+                        "uuid": "b445e9c7ffa951559d129ddb452d9808"
+                      },
+                      "NetCapacity": {
+                        "type": "attribute",
+                        "unit": "kWh",
+                        "description": "Net capacity of the battery",
+                        "uuid": "0630357b9ef258a9a6557464c5ec465c",
+                        "datatype": "uint16"
+                      },
+                      "AccumulatedConsumedEnergy": {
+                        "type": "sensor",
+                        "datatype": "float",
+                        "unit": "kWh",
+                        "description": "The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime.",
+                        "uuid": "5ea90471ad6f5104b1cadd9eda23c21b"
+                      },
+                      "Temperature": {
+                        "type": "sensor",
+                        "datatype": "float",
+                        "unit": "celsius",
+                        "description": "Temperature of the battery pack",
+                        "uuid": "96715b1ca47550f7a4baeb628515754a"
+                      },
+                      "GrossCapacity": {
+                        "unit": "kWh",
+                        "type": "attribute",
+                        "description": "Gross capacity of the battery",
+                        "uuid": "4280ea3c2a565dea93bf31cc9cfc4403",
+                        "datatype": "uint16"
+                      }
+                    },
+                    "description": "Battery status",
+                    "uuid": "fc645d83a4df5e1a9ee74dc7e0675180"
+                  }
+                },
+                "description": "Battery Management data.",
+                "uuid": "feb2c8584f475fb593cd5a81cf4a908f"
+              }
+            },
+            "description": "Powertrain data for energy storage (combustion engines, electric motors, etc.)",
+            "uuid": "98ca1ab8ac96568cacb85824ae9099f0"
+          }
+        }
+      },
+      "Chassis": {
+        "type": "branch",
+        "children": {
+          "CurbWeight": {
+            "description": "Vehicle curb weight, in kg, including all liquids and full tank of fuel, but no cargo or passengers.",
+            "uuid": "ffe3fe9067b15475bb02865ba51cc972",
+            "value": 0,
+            "type": "attribute",
+            "datatype": "uint16",
+            "unit": "kg"
+          },
+          "AxleCount": {
+            "value": 2,
+            "type": "attribute",
+            "datatype": "uint8",
+            "description": "Number of axles on the vehicle",
+            "uuid": "86d084c9148d5f22b5402a030413ed79"
+          },
+          "Width": {
+            "unit": "mm",
+            "description": "Overall vehicle width, in mm.",
+            "uuid": "abd0c2786e275dc1b9669dd337ba6c65",
+            "value": 0,
+            "type": "attribute",
+            "datatype": "uint16"
+          },
+          "GrossWeight": {
+            "description": "Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers.",
+            "uuid": "1488a8a670535ea2b3ce2ec5b7016175",
+            "value": 0,
+            "type": "attribute",
+            "datatype": "uint16",
+            "unit": "kg"
+          },
+          "Track": {
+            "description": "Overall wheel tracking, in mm.",
+            "uuid": "f66cc4e6d7cf5e1da0d58af902dbb36b",
+            "value": 0,
+            "type": "attribute",
+            "datatype": "uint16",
+            "unit": "mm"
+          },
+          "SteeringWheel": {
+            "type": "branch",
+            "children": {
+              "Position": {
+                "description": "Position of the steering wheel on the left or right side of the vehicle.",
+                "uuid": "314d6eeeba195098b36ae7f476d27824",
+                "enum": [
+                  "front_left",
+                  "front_right"
+                ],
+                "value": "front_left",
+                "type": "attribute",
+                "datatype": "string"
+              },
+              "Extension": {
+                "min": 0,
+                "description": "Steering wheel column extension from dashboard. 0 = Closest to dashboard. 100 = Furthest from dashboard.",
+                "uuid": "6a84cc3604fc5960a1fb384fe63fae72",
+                "type": "actuator",
+                "datatype": "uint8",
+                "max": 100,
+                "unit": "percent"
+              },
+              "Tilt": {
+                "min": 0,
+                "description": "Steering wheel column tilt. 0 = Lowest position. 100 = Highest position.",
+                "uuid": "33e979769f91521d8080384447d06c00",
+                "type": "actuator",
+                "datatype": "uint8",
+                "max": 100,
+                "unit": "percent"
+              },
+              "Angle": {
+                "type": "sensor",
+                "datatype": "Int16",
+                "unit": "degrees",
+                "description": "Steering wheel angle. Positive = degrees to the left. Negative = degrees to the right.",
+                "uuid": "92cd3b3d37585b2291806fe5127d9393"
+              }
+            },
+            "description": "Steering wheel signals",
+            "uuid": "8c759072791e5986ac4efe9df0c2b751"
+          },
+          "Height": {
+            "description": "Overall vehicle height, in mm.",
+            "uuid": "63e6660d8f635f4db977c23ee411f0cc",
+            "value": 0,
+            "type": "attribute",
+            "datatype": "uint16",
+            "unit": "mm"
+          },
+          "Length": {
+            "description": "Overall vehicle length, in mm.",
+            "uuid": "ace9409dc191589faf79edd42a3218d3",
+            "value": 0,
+            "type": "attribute",
+            "datatype": "uint16",
+            "unit": "mm"
+          },
+          "Trailer": {
+            "type": "branch",
+            "children": {
+              "Connected": {
+                "type": "sensor",
+                "datatype": "boolean",
+                "description": "Signal indicating if trailer is connected or not.",
+                "uuid": "00894266101c534fbcc4a6fb6d3a497a"
+              }
+            },
+            "description": "Trailer signals",
+            "uuid": "228ce19986db5ce383fa5725fcb6b01b"
+          },
+          "Accelerator": {
+            "type": "branch",
+            "children": {
+              "PedalPosition": {
+                "min": 0,
+                "description": "Accelerator pedal position as percent. 0 = Not depressed. 100 = Fully depressed.",
+                "uuid": "2fabd8b61db45f62b4e97e7a612b4a73",
+                "type": "sensor",
+                "datatype": "uint8",
+                "max": 100,
+                "unit": "percent"
+              }
+            },
+            "description": "Accelerator signals",
+            "uuid": "3b2b562086a45eb29c55186f3b710621"
+          },
+          "Brake": {
+            "type": "branch",
+            "children": {
+              "PedalPosition": {
+                "min": 0,
+                "description": "Brake pedal position as percent. 0 = Not depressed. 100 = Fully depressed.",
+                "uuid": "0477d3a4a831564ea473976cf34374f2",
+                "type": "sensor",
+                "datatype": "uint8",
+                "max": 100,
+                "unit": "percent"
+              }
+            },
+            "description": "Brake system signals",
+            "uuid": "38df972e5c6b558e93839a5e97238c5a"
+          },
+          "TowWeight": {
+            "unit": "kg",
+            "description": "Maximum weight, in kilos, of trailer.",
+            "uuid": "ff8fc44fac735c278bf18291790cc9db",
+            "value": 0,
+            "type": "attribute",
+            "datatype": "uint16"
+          },
+          "ParkingBrake": {
+            "type": "branch",
+            "children": {
+              "IsEngaged": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Parking brake status. True = Parking Brake is Engaged. False = Parking Brake is not Engaged.",
+                "uuid": "faa7f94e6a5555c6b2d62e3328520ce0"
+              }
+            },
+            "description": "Parking brake signals",
+            "uuid": "3849d42292f4551590fa4bf716fc90f7"
+          },
+          "Axle": {
+            "type": "branch",
+            "children": {
+              "WheelDiameter": {
+                "type": "attribute",
+                "unit": "inch",
+                "description": "Diameter of wheels (without tires), in inches, as per ETRO / TRA standard.",
+                "uuid": "d2b1a56de0be59f687d02b30c9915688",
+                "datatype": "uint8"
+              },
+              "WheelWidth": {
+                "type": "attribute",
+                "datatype": "uint8",
+                "unit": "inch",
+                "description": "Width of wheels (without tires), in inches, as per ETRO / TRA standard.",
+                "uuid": "e0867130c0d6598c86aae9425d42a883"
+              },
+              "TireDiameter": {
+                "type": "attribute",
+                "datatype": "uint8",
+                "unit": "inch",
+                "description": "Diameter of tires, in inches, as per ETRO / TRA standard.",
+                "uuid": "354e567c107957d49de377a7f0591d06"
+              },
+              "WheelCount": {
+                "type": "attribute",
+                "datatype": "uint8",
+                "description": "Number of wheels on the first axle",
+                "uuid": "e78dfd47277c55eea17cfa8355f3d68f"
+              },
+              "TireWidth": {
+                "unit": "inch",
+                "type": "attribute",
+                "description": "Width of tires, in inches, as per ETRO / TRA standard.",
+                "uuid": "86700236876c59d6ba368bb5a5f6fb97",
+                "datatype": "uint8"
+              },
+              "Wheel": {
+                "type": "branch",
+                "children": {
+                  "Tire": {
+                    "type": "branch",
+                    "children": {
+                      "PressureLow": {
+                        "type": "sensor",
+                        "datatype": "boolean",
+                        "description": "Tire Pressure Status. True = Low tire pressure. False = Good tire pressure.",
+                        "uuid": "4ce4cacced8b50589b8dc6099a94d0af"
+                      },
+                      "Pressure": {
+                        "type": "sensor",
+                        "datatype": "uint8",
+                        "unit": "kpa",
+                        "description": "Tire pressure in kilo-Pascal",
+                        "uuid": "db73fa5cc6435b01bd930aa6b056ec97"
+                      },
+                      "Temperature": {
+                        "type": "sensor",
+                        "datatype": "float",
+                        "unit": "celsius",
+                        "description": "Tire temperature in Celsius.",
+                        "uuid": "b69fcffbe8f55bfe9d98ae135a5f92fe"
+                      }
+                    },
+                    "description": "Tire signals for wheel",
+                    "uuid": "9af940de6cdc5f72a3bd7c288757bc2f"
+                  },
+                  "Brake": {
+                    "type": "branch",
+                    "children": {
+                      "FluidLevel": {
+                        "type": "sensor",
+                        "datatype": "uint8",
+                        "unit": "percent",
+                        "description": "Brake fluid level as percent. 0 = Empty. 100 = Full.",
+                        "uuid": "590b8fc53e2a5a65be757e5256d190e4"
+                      },
+                      "FluidLevelLow": {
+                        "type": "sensor",
+                        "datatype": "boolean",
+                        "description": "Brake fluid level status. True = Brake fluid level low. False = Brake fluid level OK.",
+                        "uuid": "4171742873dd5305bd9c521b0d94437c"
+                      },
+                      "PadWear": {
+                        "type": "sensor",
+                        "datatype": "uint8",
+                        "description": "Brake pad wear as percent. 0 = No Wear. 100 = Worn.",
+                        "uuid": "494287b75fb3596fb76c420775faddec"
+                      },
+                      "BrakesWorn": {
+                        "type": "sensor",
+                        "datatype": "boolean",
+                        "description": "Brake pad wear status. True = Worn. False = Not Worn.",
+                        "uuid": "2186f383155c5d3ca8b22386c08e556a"
+                      }
+                    },
+                    "description": "Brake signals for wheel",
+                    "uuid": "188b6b25f8825db3919327bc1064d3c8"
+                  }
+                },
+                "instances": [
+                  "Left",
+                  "Right"
+                ],
+                "description": "Brake signals for first row",
+                "uuid": "eb66313d4d13500588cb5640260b663f"
+              }
+            },
+            "instances": [
+              "Row[1,2]"
+            ],
+            "description": "Axle signals",
+            "uuid": "0a3ebde7efa85c04ac6c29b5676fec5d"
+          },
+          "Wheelbase": {
+            "description": "Overall wheel base, in mm.",
+            "uuid": "11677e0433935dc7aa9c1806c96a8a6b",
+            "value": 0,
+            "type": "attribute",
+            "datatype": "uint16",
+            "unit": "mm"
+          }
+        },
+        "description": "All data concerning steering, suspension, wheels, and brakes.",
+        "uuid": "87d260d635425da0a4ebd62bc4e5c313"
+      },
+      "VehicleIdentification": {
+        "type": "branch",
+        "children": {
+          "Brand": {
+            "type": "attribute",
+            "datatype": "string",
+            "description": "Vehicle brand or manufacturer",
+            "uuid": "19fd645ff5385767bcdbf5dd4313483f"
+          },
+          "WMI": {
+            "type": "attribute",
+            "datatype": "string",
+            "description": "3-character World Manufacturer Identification (WMI) as defined by ISO 3780",
+            "uuid": "e7c86defbcd554a79f90ba85de58e133"
+          },
+          "vehicleModelDate": {
+            "type": "attribute",
+            "datatype": "string",
+            "description": "The release date of a vehicle model (often used to differentiate versions of the same make and model).",
+            "uuid": "8292d5c6e0b15a92b97d301b31a6f27b"
+          },
+          "dateVehicleFirstRegistered": {
+            "type": "attribute",
+            "datatype": "string",
+            "description": "The date of the first registration of the vehicle with the respective public authorities.",
+            "uuid": "a48af4a5ef28520090255ca1ea2610f1"
+          },
+          "productionDate": {
+            "type": "attribute",
+            "datatype": "string",
+            "description": "The date of production of the item, e.g. vehicle.",
+            "uuid": "fc755d9de42d5286bfd6b35e4dca6bcb"
+          },
+          "Year": {
+            "type": "attribute",
+            "datatype": "uint16",
+            "description": "Model year of the vehicle",
+            "uuid": "9a76b0aca8e45f6fb33dbaf5b976b8b5"
+          },
+          "vehicleSeatingCapacity": {
+            "type": "attribute",
+            "datatype": "uint16",
+            "description": "The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.",
+            "uuid": "0d00e8ecfccf52d9aed6abbe5938df5d"
+          },
+          "vehicleinteriorColor": {
+            "type": "attribute",
+            "datatype": "string",
+            "description": "A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.",
+            "uuid": "aea3643341d650959293617972a9405e"
+          },
+          "vehicleSpecialUsage": {
+            "type": "attribute",
+            "datatype": "string",
+            "description": "Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school.",
+            "uuid": "5d4264def1fd5328a45108a62a4770b1"
+          },
+          "ACRISSCode": {
+            "type": "attribute",
+            "datatype": "string",
+            "description": "The ACRISS Car Classification Code is a code used by many car rental companies.",
+            "uuid": "de98b9de86f359b4bd703b2e3d48f25a"
+          },
+          "vehicleConfiguration": {
+            "type": "attribute",
+            "datatype": "string",
+            "description": "A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.",
+            "uuid": "d5efd9741e5f582f8a8da0d93811347f"
+          },
+          "Model": {
+            "type": "attribute",
+            "datatype": "string",
+            "description": "Vehicle model",
+            "uuid": "dd3d3b72e6a85b3695ba25f829255403"
+          },
+          "vehicleinteriorType": {
+            "type": "attribute",
+            "datatype": "string",
+            "description": "The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.).",
+            "uuid": "a2466d9fa9b05409ba53ed46660b7147"
+          },
+          "VIN": {
+            "type": "attribute",
+            "datatype": "string",
+            "description": "17-character Vehicle Identification Number (VIN) as defined by ISO 3779",
+            "uuid": "6f0b6fa8c34f589baa92e565bc9df5bd"
+          },
+          "knownVehicleDamages": {
+            "type": "attribute",
+            "datatype": "string",
+            "description": "A textual description of known damages, both repaired and unrepaired.",
+            "uuid": "60f32d73afff58d0ac80c1c09b98dfb9"
+          },
+          "bodyType": {
+            "type": "attribute",
+            "datatype": "string",
+            "description": "Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.).",
+            "uuid": "3f6910e6773c532e986240e3d45f623b"
+          },
+          "purchaseDate": {
+            "type": "attribute",
+            "datatype": "string",
+            "description": "The date the item e.g. vehicle was purchased by the current owner.",
+            "uuid": "07ac6595c60a57318b627a05775d696a"
+          },
+          "meetsEmissionStandard": {
+            "type": "attribute",
+            "datatype": "string",
+            "description": "Indicates that the vehicle meets the respective emission standard.",
+            "uuid": "4324b78dfb865164ba91345564d88f39"
+          }
+        },
+        "description": "Attributes that identify a vehicle",
+        "uuid": "c33861c3e9125208b05f23fe922bf08e"
+      },
+      "IgnitionOnTime": {
+        "type": "sensor",
+        "datatype": "uint32",
+        "unit": "s",
+        "description": "Accumulated ignition on time in seconds.",
+        "uuid": "ffae3b559998574ba58ee66dd0ac5d39"
+      },
+      "IgnitionOffTime": {
+        "type": "sensor",
+        "datatype": "uint32",
+        "unit": "s",
+        "description": "Accumulated ignition off time in seconds.",
+        "uuid": "c0c4467bb00d5c0683c5bb81bcfdcb3e"
+      },
+      "Cabin": {
+        "type": "branch",
+        "children": {
+          "RearShade": {
+            "type": "branch",
+            "children": {
+              "Position": {
+                "min": 0,
+                "description": "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed.",
+                "uuid": "9e16fc53f2ec575dbf66c79f969949a9",
+                "type": "actuator",
+                "datatype": "uint8",
+                "max": 100,
+                "unit": "percent"
+              },
+              "Switch": {
+                "type": "actuator",
+                "datatype": "string",
+                "description": "Switch controlling sliding action such as window, sunroof, or blind.",
+                "uuid": "da9f01e9baf35544842f1a7674c5172a",
+                "enum": [
+                  "Inactive",
+                  "Close",
+                  "Open",
+                  "OneShotClose",
+                  "OneShotOpen"
+                ]
+              }
+            },
+            "description": "Rear window shade.",
+            "uuid": "8a0c86f4fc6f5ea8ac8cf8f327969dcc"
+          },
+          "Door": {
+            "type": "branch",
+            "children": {
+              "IsChildLockActive": {
+                "type": "sensor",
+                "datatype": "boolean",
+                "description": "Is door child lock engaged. True = Engaged. False = Disengaged.",
+                "uuid": "0246b897c0325faf869330d2e96b36af"
+              },
+              "IsOpen": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Is door open or closed",
+                "uuid": "5a04d833cf2e55e3a3ceb1f1e525a188"
+              },
+              "IsLocked": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Is door locked or unlocked. True = Locked. False = Unlocked.",
+                "uuid": "6cc24552c4185026a1ead2e2aee24b1b"
+              },
+              "Window": {
+                "type": "branch",
+                "children": {
+                  "ChildLock": {
+                    "type": "sensor",
+                    "datatype": "boolean",
+                    "description": "Is door child lock engaged. True = Engaged. False = Disengaged.",
+                    "uuid": "76175d9563705cc791e8eb6ba61861cc"
+                  },
+                  "Position": {
+                    "min": 0,
+                    "description": "Window position. 0 = Fully closed 100 = Fully opened.",
+                    "uuid": "c861bfaaaf795ab28597f684427277ba",
+                    "type": "sensor",
+                    "datatype": "uint8",
+                    "max": 100,
+                    "unit": "percent"
+                  },
+                  "isOpen": {
+                    "type": "sensor",
+                    "datatype": "boolean",
+                    "description": "Is door open or closed",
+                    "uuid": "f760a77693455d41b43c8d1ffc9261d7"
+                  },
+                  "Switch": {
+                    "type": "actuator",
+                    "datatype": "string",
+                    "description": "Switch controlling sliding action such as window, sunroof, or blind.",
+                    "uuid": "e729ded092f055f0b813ccc37d49fc77",
+                    "enum": [
+                      "Inactive",
+                      "Close",
+                      "Open",
+                      "OneShotClose",
+                      "OneShotOpen"
+                    ]
+                  }
+                },
+                "description": "Door window status",
+                "uuid": "0295961e129e5706ac46da25daf2e142"
+              },
+              "Shade": {
+                "type": "branch",
+                "children": {
+                  "Position": {
+                    "min": 0,
+                    "description": "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed.",
+                    "uuid": "abee29324b4658db8146b3ca604c5461",
+                    "type": "actuator",
+                    "datatype": "uint8",
+                    "max": 100,
+                    "unit": "percent"
+                  },
+                  "Switch": {
+                    "type": "actuator",
+                    "datatype": "string",
+                    "description": "Switch controlling sliding action such as window, sunroof, or blind.",
+                    "uuid": "e842a21dc81358d1b9df58e10542f002",
+                    "enum": [
+                      "Inactive",
+                      "Close",
+                      "Open",
+                      "OneShotClose",
+                      "OneShotOpen"
+                    ]
+                  }
+                },
+                "description": "Side window shade",
+                "uuid": "2e3b255557e15f81b0169d7133f8f5af"
+              }
+            },
+            "instances": [
+              "Row[1,4]",
+              [
+                "Left",
+                "Right"
+              ]
+            ],
+            "description": "All doors, including windows and switches",
+            "uuid": "fd7f4d16f8965419a9a69fd66b40c1d7"
+          },
+          "Infotainment": {
+            "type": "branch",
+            "children": {
+              "HMI": {
+                "type": "branch",
+                "children": {
+                  "CurrentLanguage": {
+                    "type": "sensor",
+                    "datatype": "string",
+                    "description": "ISO 639-1 standard language code for the current HMI",
+                    "uuid": "dc29ee5b7f7154b4ab05a9771fe930b3"
+                  },
+                  "DateFormat": {
+                    "type": "actuator",
+                    "datatype": "string",
+                    "description": "Date format used in the current HMI",
+                    "uuid": "0f03c3955fe953e9893a1f52e964919e",
+                    "enum": [
+                      "YYYY MM DD",
+                      "DD MM YYYY",
+                      "MM DD YYYY",
+                      "YY MM DD",
+                      "DD MM YY",
+                      "MM DD YY"
+                    ]
+                  },
+                  "TemperatureUnit": {
+                    "type": "actuator",
+                    "datatype": "string",
+                    "description": "Temperature unit used in the current HMI",
+                    "uuid": "a7d1533490bb52b6b4f650280e72543d",
+                    "enum": [
+                      "C",
+                      "F"
+                    ]
+                  },
+                  "TimeFormat": {
+                    "type": "actuator",
+                    "datatype": "string",
+                    "description": "Time format used in the current HMI",
+                    "uuid": "73083b87a4e25c02aee672ea32e40005",
+                    "enum": [
+                      "12HR",
+                      "24HR"
+                    ]
+                  },
+                  "FuelEconomyUnits": {
+                    "type": "actuator",
+                    "datatype": "string",
+                    "description": "Fuel economy unit used in the current HMI",
+                    "uuid": "0e6a43ce1aa45243b753545ffa1f0f8c",
+                    "enum": [
+                      "mpg_UK",
+                      "mpg_US",
+                      "mpl",
+                      "km/l",
+                      "l/100km"
+                    ]
+                  },
+                  "EVEconomyUnits": {
+                    "type": "actuator",
+                    "datatype": "string",
+                    "description": "EV fuel economy unit used in the current HMI",
+                    "uuid": "914846f6804757ba81ca6bcfac8d2c48",
+                    "enum": [
+                      "mi/kWh",
+                      "km/kWh",
+                      "kWh/100mi",
+                      "kWh/100km",
+                      "Wh/mi",
+                      "Wh/km"
+                    ]
+                  },
+                  "DayNightMode": {
+                    "type": "actuator",
+                    "datatype": "string",
+                    "description": "Current display theme",
+                    "uuid": "a892039ba136588fa26b2670f839c0cc",
+                    "enum": [
+                      "Day",
+                      "Night"
+                    ]
+                  },
+                  "DistanceUnit": {
+                    "type": "actuator",
+                    "datatype": "string",
+                    "description": "Distance unit used in the current HMI",
+                    "uuid": "4b40e8bdb1a053ee9ee35338d8804e7b",
+                    "enum": [
+                      "mi",
+                      "km"
+                    ]
+                  }
+                },
+                "description": "HMI related signals",
+                "uuid": "271e3d9202825f37bd054820e5ea8141"
+              },
+              "Media": {
+                "type": "branch",
+                "children": {
+                  "DeclinedURI": {
+                    "type": "sensor",
+                    "datatype": "string",
+                    "description": "URI of suggested media that was declined",
+                    "uuid": "51b0d6227db55b92bc35eedd8277f4c4"
+                  },
+                  "Played": {
+                    "type": "branch",
+                    "children": {
+                      "Track": {
+                        "type": "sensor",
+                        "datatype": "string",
+                        "description": "Name of track being played",
+                        "uuid": "ee800d62a40351e6934649ca75927d69"
+                      },
+                      "Album": {
+                        "type": "sensor",
+                        "datatype": "string",
+                        "description": "Name of album being played",
+                        "uuid": "1d80b1e2c1085def92b3548b5db2786e"
+                      },
+                      "URI": {
+                        "type": "sensor",
+                        "datatype": "string",
+                        "description": "User Resource associated with the media",
+                        "uuid": "1ed22b9925c3502d8d1389c8e02d0f07"
+                      },
+                      "Artist": {
+                        "type": "sensor",
+                        "datatype": "string",
+                        "description": "Name of artist being played",
+                        "uuid": "076af7ad8aff5110ab5a64d1f58ccdcb"
+                      },
+                      "Source": {
+                        "type": "actuator",
+                        "datatype": "string",
+                        "description": "Media selected for playback",
+                        "uuid": "54fb88a7d7cf5e3aab63e8f52415c187",
+                        "enum": [
+                          "unknown",
+                          "SiriusXM",
+                          "AM",
+                          "FM",
+                          "DAB",
+                          "TV",
+                          "CD",
+                          "DVD",
+                          "AUX",
+                          "USB",
+                          "Disk",
+                          "Bluetooth",
+                          "Internet",
+                          "Voice",
+                          "Beep"
+                        ]
+                      }
+                    },
+                    "description": "Collection of signals updated in concert when a new media is played",
+                    "uuid": "6585e9d3b6ff596da72a5f8c98d2d47a",
+                    "aggregate": true
+                  },
+                  "Action": {
+                    "type": "actuator",
+                    "datatype": "string",
+                    "description": "Tells if the media was",
+                    "uuid": "0357aea525bf505981a14e4fc720094e",
+                    "enum": [
+                      "unknown",
+                      "Stop",
+                      "Play",
+                      "FastForward",
+                      "FastBackward",
+                      "SkipForward",
+                      "SkipBackward"
+                    ]
+                  },
+                  "SelectedURI": {
+                    "type": "actuator",
+                    "datatype": "string",
+                    "description": "URI of suggested media that was selected",
+                    "uuid": "4820f7a961c25e91af12d3417a145d32"
+                  },
+                  "Volume": {
+                    "min": 0,
+                    "description": "Current Media Volume",
+                    "uuid": "8b344688816f5844ae5812bb136c8006",
+                    "type": "actuator",
+                    "datatype": "uint8",
+                    "max": 100
+                  }
+                },
+                "description": "All Media actions",
+                "uuid": "3f324d13873e501a84daf2cfade24d0f"
+              },
+              "Navigation": {
+                "type": "branch",
+                "children": {
+                  "CurrentLocation": {
+                    "type": "branch",
+                    "children": {
+                      "Speed": {
+                        "min": 0,
+                        "description": "Vehicle speed, as sensed by the GPS receiver.",
+                        "uuid": "e72a72f3d6dc550f824cb03add1ada3b",
+                        "type": "sensor",
+                        "datatype": "uint16",
+                        "max": 250,
+                        "unit": "km/h"
+                      },
+                      "Longitude": {
+                        "min": -180,
+                        "description": "Current longitude of vehicle, as reported by GPS.",
+                        "uuid": "1a9be9c36a9a5ddc945bfb1e8c1f4384",
+                        "type": "sensor",
+                        "datatype": "Double",
+                        "max": 180,
+                        "unit": "degrees"
+                      },
+                      "Accuracy": {
+                        "type": "sensor",
+                        "datatype": "Double",
+                        "unit": "m",
+                        "description": "Accuracy level of the latitude and longitude coordinates in meters.",
+                        "uuid": "eb9218c66b1451fcac5cfcf39d36f5da"
+                      },
+                      "Heading": {
+                        "min": 0,
+                        "description": "Current magnetic compass heading, in degrees.",
+                        "uuid": "67cd26aaf82e5e9f8a127aabba993003",
+                        "type": "sensor",
+                        "datatype": "Double",
+                        "max": 360,
+                        "unit": "degrees"
+                      },
+                      "Latitude": {
+                        "min": -90,
+                        "description": "Current latitude of vehicle, as reported by GPS.",
+                        "uuid": "dceb455713ac56a59e79c0fd25c01a08",
+                        "type": "sensor",
+                        "datatype": "Double",
+                        "max": 90,
+                        "unit": "degrees"
+                      },
+                      "Altitude": {
+                        "type": "sensor",
+                        "datatype": "Double",
+                        "unit": "m",
+                        "description": "Current elevation of the position in meters.",
+                        "uuid": "66e2f3fdf1f15b0a9925b674820f19fd"
+                      }
+                    },
+                    "description": "The current latitude and longitude of the vehicle.",
+                    "uuid": "12f930405e815048bf5b77db90c7d6e4",
+                    "aggregate": true
+                  },
+                  "DestinationSet": {
+                    "type": "branch",
+                    "children": {
+                      "Longitude": {
+                        "min": -180,
+                        "description": "Longitude of destination",
+                        "uuid": "e9bd511146ca51639c8d42c0702e22ee",
+                        "type": "actuator",
+                        "datatype": "Double",
+                        "max": 180,
+                        "unit": "degrees"
+                      },
+                      "Latitude": {
+                        "min": -90,
+                        "description": "Latitude of destination",
+                        "uuid": "3e33f3252934565d86de5409c761262b",
+                        "type": "actuator",
+                        "datatype": "Double",
+                        "max": 90,
+                        "unit": "degrees"
+                      }
+                    },
+                    "description": "A navigation has been selected.",
+                    "uuid": "f51ce253dc5b58168ecca99297139455",
+                    "aggregate": true
+                  }
+                },
+                "description": "All navigation actions",
+                "uuid": "79bb0cc4acae5d1eb34fb214352d7863"
+              }
+            },
+            "description": "Infotainment system",
+            "uuid": "d88f92fbdda35012a2443b5e130d5eff"
+          },
+          "Lights": {
+            "type": "branch",
+            "children": {
+              "AmbientLight": {
+                "min": 0,
+                "description": "How much ambient light is detected in cabin. 0 = No ambient light. 100 = Full brightness",
+                "uuid": "cf7bf6bc25c2564383e72ef840e4b47d",
+                "type": "sensor",
+                "datatype": "uint8",
+                "max": 100,
+                "unit": "percent"
+              },
+              "IsGloveBoxOn": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Is glove box light on",
+                "uuid": "f7281175fbc85b4a937b2606e4300f9a"
+              },
+              "IsDomeOn": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Is central dome light light on",
+                "uuid": "cc100f4cd2ff5e0593a557a74ebf5d9a"
+              },
+              "IsTrunkOn": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Is trunk light light on",
+                "uuid": "3697df4cddc751df847fac74bd32390f"
+              },
+              "Spotlight": {
+                "type": "branch",
+                "children": {
+                  "IsPassengerOn": {
+                    "type": "actuator",
+                    "instances": [
+                      "Left",
+                      "Right"
+                    ],
+                    "datatype": "boolean",
+                    "description": "Is passenger light on",
+                    "uuid": "378dc37b038a5a7e8b1a1053c480c494"
+                  },
+                  "IsSharedOn": {
+                    "type": "sensor",
+                    "datatype": "boolean",
+                    "description": "Is a shared light across a specific row on",
+                    "uuid": "5c3fdfa247955798b6e06a1a8c1b678f"
+                  }
+                },
+                "instances": "Row[1,4]",
+                "description": "Spotlight for a specific area in the vehicle.",
+                "uuid": "8528c64a4c775da3ab01617bbff2e3c9"
+              },
+              "LightIntensity": {
+                "min": 0,
+                "description": "Intensity of the interior lights. 0 = Off. 100 = Full brightness.",
+                "uuid": "a66eba0bae225a56babf3f9ceb65fc76",
+                "type": "sensor",
+                "datatype": "uint8",
+                "max": 100,
+                "unit": "percent"
+              }
+            },
+            "description": "Interior lights signals and sensors",
+            "uuid": "8b5cd8c4d1e752b38c65a5966c870ccb"
+          },
+          "SeatPosCount": {
+            "instances": "Row[1,4]",
+            "description": "Number of seats across each row from the front to the rear",
+            "uuid": "8dd40ecd47ab51c79ed9c74ae4296d7e",
+            "value": 0,
+            "type": "attribute",
+            "datatype": "uint8"
+          },
+          "DriverPosition": {
+            "value": 0,
+            "type": "attribute",
+            "datatype": "uint8",
+            "description": "The position of the driver seat in row 1. (1-5)",
+            "uuid": "bca9ccd50358584d8d20865694b0d15f"
+          },
+          "HVAC": {
+            "type": "branch",
+            "children": {
+              "AmbientAirTemperature": {
+                "description": "Ambient air temperature",
+                "uuid": "611868a24bc25eb9a837208c235e9491",
+                "type": "sensor",
+                "datatype": "float",
+                "unit": "celsius"
+              },
+              "IsAirConditioningActive": {
+                "description": "Is Air conditioning active.",
+                "uuid": "dc4f79e4211c54a6b4eed0236aae84a6",
+                "type": "actuator",
+                "datatype": "boolean"
+              },
+              "IsRearDefrosterActive": {
+                "description": "Is rear defroster active.",
+                "uuid": "d342a7939f2e5adeaeb5e68e3a314445",
+                "type": "actuator",
+                "datatype": "boolean"
+              },
+              "IsRecirculationActive": {
+                "description": "Is recirculation active.",
+                "uuid": "7b80c41c63b35c9299a410166cd33c81",
+                "type": "actuator",
+                "datatype": "boolean"
+              },
+              "Station": {
+                "type": "branch",
+                "children": {
+                  "FanSpeed": {
+                    "min": 0,
+                    "description": "Fan Speed, 0 = off. 100 = max",
+                    "uuid": "91ea457dc7265eb3a13c4b13dd177b51",
+                    "type": "actuator",
+                    "datatype": "uint8",
+                    "max": 100,
+                    "unit": "percent"
+                  },
+                  "Temperature": {
+                    "min": -50,
+                    "description": "Temperature",
+                    "uuid": "d4d70e069b7b5c9e9793291d3c1e4e97",
+                    "type": "actuator",
+                    "datatype": "int8",
+                    "max": 50,
+                    "unit": "celsius"
+                  },
+                  "AirDistribution": {
+                    "type": "actuator",
+                    "datatype": "string",
+                    "description": "Direction of airstream",
+                    "uuid": "70953a9ed60b56e6b9338548473206ac",
+                    "enum": [
+                      "up",
+                      "middle",
+                      "down"
+                    ]
+                  }
+                },
+                "instances": [
+                  "Row[1,4]",
+                  [
+                    "Left",
+                    "Right"
+                  ]
+                ],
+                "description": "HVAC for single station in the vehicle",
+                "uuid": "253e683e6f135b83b6302a30b6c0ec8d"
+              },
+              "IsFrontDefrosterActive": {
+                "description": "Is front defroster active.",
+                "uuid": "afa678c87182544bb6ab81fa6a770791",
+                "type": "actuator",
+                "datatype": "boolean"
+              }
+            },
+            "description": "Climate control",
+            "uuid": "f8ff34337cdf568e91ab406a365c3249"
+          },
+          "Sunroof": {
+            "type": "branch",
+            "children": {
+              "Position": {
+                "min": -100,
+                "description": "Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted",
+                "uuid": "ab598697f1c852eda4df9ed62a956d17",
+                "type": "sensor",
+                "datatype": "Int8",
+                "max": 100
+              },
+              "Shade": {
+                "type": "branch",
+                "children": {
+                  "Position": {
+                    "min": 0,
+                    "description": "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed.",
+                    "uuid": "5f78c2a631b75abc88744f9bad277f5a",
+                    "type": "actuator",
+                    "datatype": "uint8",
+                    "max": 100,
+                    "unit": "percent"
+                  },
+                  "Switch": {
+                    "type": "actuator",
+                    "datatype": "string",
+                    "description": "Switch controlling sliding action such as window, sunroof, or blind.",
+                    "uuid": "3836077128c65381b01e74a1a8be1c40",
+                    "enum": [
+                      "Inactive",
+                      "Close",
+                      "Open",
+                      "OneShotClose",
+                      "OneShotOpen"
+                    ]
+                  }
+                },
+                "description": "Sun roof shade status",
+                "uuid": "eeaae5977adb5683b16f405993405b2e"
+              },
+              "Switch": {
+                "type": "actuator",
+                "datatype": "string",
+                "description": "Switch controlling sliding action such as window, sunroof, or shade.",
+                "uuid": "88c39afd45a25ea2b474ff581e1fb138",
+                "enum": [
+                  "Inactive",
+                  "Close",
+                  "Open",
+                  "OneShotClose",
+                  "OneShotOpen",
+                  "TiltUp",
+                  "TiltDown"
+                ]
+              }
+            },
+            "description": "Sun roof status.",
+            "uuid": "8ff70db05c065e3eb530082a0b6983cf"
+          },
+          "Convertible": {
+            "type": "branch",
+            "children": {
+              "Status": {
+                "type": "sensor",
+                "datatype": "string",
+                "description": "Roof status on convertible vehicles",
+                "uuid": "c8812698198a56d7a1adcc8bbe87845f",
+                "enum": [
+                  "undefined",
+                  "closed",
+                  "open",
+                  "closing",
+                  "opening",
+                  "stalled"
+                ]
+              }
+            },
+            "description": "Convertible roof",
+            "uuid": "2aece85d39d6569e93cf842387a645d9"
+          },
+          "DoorCount": {
+            "value": 0,
+            "type": "attribute",
+            "datatype": "uint8",
+            "description": "Number of doors in vehicle",
+            "uuid": "c293fbef75725c57a9918dd5a34055c4"
+          },
+          "RearviewMirror": {
+            "type": "branch",
+            "children": {
+              "DimmingLevel": {
+                "type": "actuator",
+                "datatype": "uint8",
+                "unit": "percent",
+                "description": "Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed",
+                "uuid": "4e2bcbaa6dc1586d8282324b475e5dee"
+              }
+            },
+            "description": "Rearview mirror",
+            "uuid": "e655b654ab9f55bbb04952a99755efae"
+          },
+          "Seat": {
+            "type": "branch",
+            "children": {
+              "HeadRestraint": {
+                "type": "branch",
+                "children": {
+                  "Height": {
+                    "min": 0,
+                    "description": "Height of head restraint. 0 = Bottommost. 255 = Topmost.",
+                    "uuid": "ca5b4f6e2a9651ae814dc81d9ba6a8e4",
+                    "type": "sensor",
+                    "datatype": "uint8",
+                    "max": 255,
+                    "unit": "mm"
+                  }
+                },
+                "description": "Head restraint settings",
+                "uuid": "d3528419a66b5b13adcb947bf034f443"
+              },
+              "HasPassenger": {
+                "type": "sensor",
+                "datatype": "boolean",
+                "description": "Does the seat have a passenger in it.",
+                "uuid": "8375453b179a5af8b18d4b71dbd755d4"
+              },
+              "Airbag": {
+                "type": "branch",
+                "children": {
+                  "IsDeployed": {
+                    "type": "sensor",
+                    "datatype": "boolean",
+                    "description": "Airbag deployment status. True = Airbag deployed. False = Airbag not deployed.",
+                    "uuid": "8ab58f97427e50e791e063d88c372f9a"
+                  }
+                },
+                "description": "Airbag signals",
+                "uuid": "3c3684d028895689b1b9fcc27ddbe66b"
+              },
+              "Heating": {
+                "min": -100,
+                "description": "Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat",
+                "uuid": "62ad21d66a1a50ffb099168cf57ecec4",
+                "type": "sensor",
+                "datatype": "int8",
+                "max": 100,
+                "unit": "percent"
+              },
+              "IsBelted": {
+                "type": "sensor",
+                "datatype": "boolean",
+                "description": "Is the belt engaged.",
+                "uuid": "bb0c650c976758169738237205d02bbe"
+              },
+              "Recline": {
+                "min": -90,
+                "description": "Recline level. -90 = Max forward recline. 90 max backward recline",
+                "uuid": "a2497570b5df5d5ebed81fbbc701ff42",
+                "type": "sensor",
+                "datatype": "int8",
+                "max": 90,
+                "unit": "degrees"
+              },
+              "Position": {
+                "min": 0,
+                "description": "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost",
+                "uuid": "3c2b01615c5750d084ba3621b4993d4e",
+                "type": "sensor",
+                "datatype": "uint16",
+                "max": 1000,
+                "unit": "mm"
+              },
+              "SideBolster": {
+                "type": "branch",
+                "children": {
+                  "Inflation": {
+                    "min": 0,
+                    "description": "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.",
+                    "uuid": "24111a1b192d5410bb28cb23e25040b9",
+                    "type": "sensor",
+                    "datatype": "uint8",
+                    "max": 255
+                  }
+                },
+                "description": "Side bolster settings",
+                "uuid": "c6d09c2872c75ec9a519a6101f936a09"
+              },
+              "Massage": {
+                "min": 0,
+                "description": "Seat massage level. 0 = off. 100 = max massage.",
+                "uuid": "3211bc3706dd5df1a657baaac5e5376b",
+                "type": "sensor",
+                "datatype": "uint8",
+                "max": 100,
+                "unit": "percent"
+              },
+              "Cushion": {
+                "type": "branch",
+                "children": {
+                  "Height": {
+                    "min": 0,
+                    "description": "Height of the seat front. 0 = Lowermost. 500 = Uppermost.",
+                    "uuid": "91fec9fcca375247b4a27d2b8230e05a",
+                    "type": "sensor",
+                    "datatype": "uint16",
+                    "max": 500,
+                    "unit": "mm"
+                  },
+                  "Length": {
+                    "min": 0,
+                    "description": "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost.",
+                    "uuid": "19f41554f6c75619afaf9c765048ef5a",
+                    "type": "sensor",
+                    "datatype": "uint16",
+                    "max": 500,
+                    "unit": "mm"
+                  }
+                },
+                "description": "Cushion signals.",
+                "uuid": "0c4b75b138fc53f287e65d5ed3c5edfd"
+              },
+              "Lumbar": {
+                "type": "branch",
+                "children": {
+                  "Inflation": {
+                    "min": 0,
+                    "description": "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.",
+                    "uuid": "5ff8d666b1205f91b60760295f2f7a39",
+                    "type": "sensor",
+                    "datatype": "uint8",
+                    "max": 255
+                  },
+                  "Height": {
+                    "min": 0,
+                    "description": "Lumbar support position. 0 = Lowermost. 255 = Uppermost.",
+                    "uuid": "2d91b70de2665a81ace344450aea5a80",
+                    "type": "sensor",
+                    "datatype": "uint8",
+                    "max": 255
+                  }
+                },
+                "description": "Lumbar signals",
+                "uuid": "1b78d889d1075f4e80d0fb4568524428"
+              },
+              "Switch": {
+                "type": "branch",
+                "children": {
+                  "Forward": {
+                    "type": "actuator",
+                    "datatype": "boolean",
+                    "description": "Seat forward switch engaged",
+                    "uuid": "68514e961cef5b33acf786c60268b82c"
+                  },
+                  "HeadRestraint": {
+                    "type": "branch",
+                    "children": {
+                      "Up": {
+                        "type": "actuator",
+                        "datatype": "boolean",
+                        "description": "Head restraint up switch engaged",
+                        "uuid": "0b0bc61c9b05582cadb88c18151261e6"
+                      },
+                      "Down": {
+                        "type": "actuator",
+                        "datatype": "boolean",
+                        "description": "Head restraint down switch engaged",
+                        "uuid": "13193f404835501896754a66a4c44b9c"
+                      }
+                    },
+                    "description": "Head restraint switches",
+                    "uuid": "b12d09e6819e56e1bbd4059944dc7ca6"
+                  },
+                  "Cooler": {
+                    "type": "actuator",
+                    "datatype": "boolean",
+                    "description": "Cooler switch for Seat heater",
+                    "uuid": "781392fb6a1951f98b1fe283989a1117"
+                  },
+                  "Up": {
+                    "type": "actuator",
+                    "datatype": "boolean",
+                    "description": "Seat up switch engaged",
+                    "uuid": "ba3d800766275d6da0686680d3c3e6e0"
+                  },
+                  "Backward": {
+                    "type": "actuator",
+                    "datatype": "boolean",
+                    "description": "Seat forward switch engaged",
+                    "uuid": "311bd21d6898542892da9e333e824618"
+                  },
+                  "Massage": {
+                    "type": "branch",
+                    "children": {
+                      "Decrease": {
+                        "type": "actuator",
+                        "datatype": "boolean",
+                        "description": "Decrease massage level switch engaged",
+                        "uuid": "843745a2b2ee506a99576a4bc01f84fb"
+                      },
+                      "Increase": {
+                        "type": "actuator",
+                        "datatype": "boolean",
+                        "description": "Increase massage level switch engaged",
+                        "uuid": "19cb8a9678b55a5bb1ffd14eeb35ae11"
+                      }
+                    },
+                    "description": "Massage switches",
+                    "uuid": "5404ba8321b55db3a1f6be69cc8b5c2e"
+                  },
+                  "SideBolster": {
+                    "type": "branch",
+                    "children": {
+                      "Inflate": {
+                        "type": "actuator",
+                        "datatype": "boolean",
+                        "description": "Lumbar inflation switch engaged",
+                        "uuid": "dcddd26a5a04530caa8d1939692f74c8"
+                      },
+                      "Deflate": {
+                        "type": "actuator",
+                        "datatype": "boolean",
+                        "description": "Lumbar deflation switch engaged",
+                        "uuid": "f78d5c71a61c5d5c94ce88febc47edff"
+                      }
+                    },
+                    "description": "Side bolster switches",
+                    "uuid": "d1ab4dc384425e93ab4234dfc72a2bdf"
+                  },
+                  "Down": {
+                    "type": "actuator",
+                    "datatype": "boolean",
+                    "description": "Seat down switch engaged",
+                    "uuid": "5828f8a4bf135d2eb2f6359c5dc1a31e"
+                  },
+                  "Recline": {
+                    "type": "branch",
+                    "children": {
+                      "Forward": {
+                        "type": "actuator",
+                        "datatype": "boolean",
+                        "description": "Seatback recline forward switch engaged",
+                        "uuid": "422c5538aa275b619f619c0a21a33b53"
+                      },
+                      "Backward": {
+                        "type": "actuator",
+                        "datatype": "boolean",
+                        "description": "Seatback recline backward switch engaged",
+                        "uuid": "7d0bce6983ca590495ddf25082164a1a"
+                      }
+                    },
+                    "description": "Recline switches",
+                    "uuid": "62ddc67abc44592eb0cc1fd0d06d6d12"
+                  },
+                  "Lumbar": {
+                    "type": "branch",
+                    "children": {
+                      "Up": {
+                        "type": "actuator",
+                        "datatype": "boolean",
+                        "description": "Lumbar up switch engaged",
+                        "uuid": "06b9d7f1a6b05bab96ecf70c7feecb43"
+                      },
+                      "Inflate": {
+                        "type": "actuator",
+                        "datatype": "boolean",
+                        "description": "Lumbar inflation switch engaged",
+                        "uuid": "a4ef72b942d85ac782ecfe3c5d9ba1bb"
+                      },
+                      "Down": {
+                        "type": "actuator",
+                        "datatype": "boolean",
+                        "description": "Lumbar down switch engaged",
+                        "uuid": "501162e457e35b8d87b262b8fd53b4f2"
+                      },
+                      "Deflate": {
+                        "type": "actuator",
+                        "datatype": "boolean",
+                        "description": "Lumbar deflation switch engaged",
+                        "uuid": "06d6a824fa3758009821f4c6869d105d"
+                      }
+                    },
+                    "description": "Lumbar switches",
+                    "uuid": "783e44a7364e5aadbd0190ff1568b1fc"
+                  },
+                  "Warmer": {
+                    "type": "actuator",
+                    "datatype": "boolean",
+                    "description": "Warmer switch for Seat heater",
+                    "uuid": "3575bf9fff295f7381e7181cc6c735b0"
+                  },
+                  "Cushion": {
+                    "type": "branch",
+                    "children": {
+                      "Up": {
+                        "type": "actuator",
+                        "datatype": "boolean",
+                        "description": "Seat cushion up switch engaged",
+                        "uuid": "76d5001d81585b98ba929c2e077cf012"
+                      },
+                      "Forward": {
+                        "type": "actuator",
+                        "datatype": "boolean",
+                        "description": "Seat cushion forward/lengthen switch engaged",
+                        "uuid": "6d9f8ef8bf395cf4a133bddca441331d"
+                      },
+                      "Down": {
+                        "type": "actuator",
+                        "datatype": "boolean",
+                        "description": "Seat cushion down switch engaged",
+                        "uuid": "318a8d358d685ee98c23fc9e666f9739"
+                      },
+                      "Backward": {
+                        "type": "actuator",
+                        "datatype": "boolean",
+                        "description": "Seat cushion backward/shorten switch engaged",
+                        "uuid": "72993cfb51a454dfa69c8eadc49a0a7b"
+                      }
+                    },
+                    "description": "Cushion switches",
+                    "uuid": "0f98392909ed56a098760b531cfd178d"
+                  }
+                },
+                "description": "Seat switch signals",
+                "uuid": "72d954cab9e6588a969552353d2a6db5"
+              }
+            },
+            "instances": [
+              "Row[1,4]",
+              "Pos[1,5]"
+            ],
+            "description": "All seats.",
+            "uuid": "b0b253106b2851e3bb5c71ae3b09f09d"
+          },
+          "SeatRowCount": {
+            "value": 0,
+            "type": "attribute",
+            "datatype": "uint8",
+            "description": "Number of seat rows in vehicle",
+            "uuid": "1002a7a4a954581b9cbc72fa438c5292"
+          }
+        },
+        "description": "All in-cabin components, including doors.",
+        "uuid": "1a94457b237f5e8eb3c77c0532ac88d7"
+      },
+      "Acceleration": {
+        "type": "branch",
+        "children": {
+          "Lateral": {
+            "type": "sensor",
+            "datatype": "int32",
+            "unit": "m/s2",
+            "description": "Vehicle acceleration in Y (lateral acceleration).",
+            "uuid": "7522c5d6b7665b16a099643b2700e93c"
+          },
+          "Vertical": {
+            "type": "sensor",
+            "datatype": "int32",
+            "unit": "m/s2",
+            "description": "Vehicle acceleration in Z (vertical acceleration).",
+            "uuid": "a4a8a7c4ac5b52deb0b3ee4ed8787c59"
+          },
+          "Longitudinal": {
+            "type": "sensor",
+            "datatype": "int32",
+            "unit": "m/s2",
+            "description": "Vehicle acceleration in X (longitudinal acceleration).",
+            "uuid": "3d511fe7232b5841be311b37f322de5a"
+          }
+        },
+        "description": "Spatial acceleration",
+        "uuid": "6c490e6a798c5abc8f0178ed6deae0a8"
+      },
+      "VersionVSS": {
+        "type": "branch",
+        "children": {
+          "Label": {
+            "type": "attribute",
+            "datatype": "string",
+            "description": "Label to further describe the version",
+            "uuid": "7c92cd50d24b5662922b27cb9a327e53"
+          },
+          "Major": {
+            "type": "attribute",
+            "datatype": "uint32",
+            "description": "Supported Version of VSS - Major version",
+            "uuid": "5edf1a338c975cbb84d4ce3cfe1aa4b4"
+          },
+          "Patch": {
+            "type": "attribute",
+            "datatype": "uint32",
+            "description": "Supported Version of VSS - Patch version",
+            "uuid": "69858f224af459338b9bfbff436dda45"
+          },
+          "Minor": {
+            "type": "attribute",
+            "datatype": "uint32",
+            "description": "Supported Version of VSS - Minor version",
+            "uuid": "6e70a598dbc7534c96c58c18e9888cfd"
+          }
+        },
+        "description": "Supported Version of VSS",
+        "uuid": "9a687e56f1305eedb20f6a021ea58f48"
+      },
+      "Private": {
+        "type": "branch",
+        "children": {},
+        "description": "Uncontrolled branch where non-public signals can be defined.",
+        "uuid": "4161866b048a5b76aa3124dec82e0260"
+      },
+      "AngularVelocity": {
+        "type": "branch",
+        "children": {
+          "Roll": {
+            "type": "sensor",
+            "datatype": "int16",
+            "unit": "degrees/s",
+            "description": "Vehicle rotation rate along X (longitudinal).",
+            "uuid": "221e6b93881e5771bcbd03e0849e0075"
+          },
+          "Pitch": {
+            "type": "sensor",
+            "datatype": "int16",
+            "unit": "degrees/s",
+            "description": "Vehicle rotation rate along Y (lateral).",
+            "uuid": "42236f4a01f45313a97fdd9b6848ce4f"
+          },
+          "Yaw": {
+            "type": "sensor",
+            "datatype": "int16",
+            "unit": "degrees/s",
+            "description": "Vehicle rotation rate along Z (vertical).",
+            "uuid": "4114c41552565c1f9035670cabe2a611"
+          }
+        },
+        "description": "Spatial rotation",
+        "uuid": "1eef530a43de56aab665d2766483cde2"
+      },
+      "RoofLoad": {
+        "type": "attribute",
+        "datatype": "int16",
+        "unit": "kg",
+        "description": "The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.",
+        "uuid": "97dc98269a19591d9efa455a8d943c16"
+      },
+      "IsMoving": {
+        "type": "sensor",
+        "datatype": "boolean",
+        "description": "Indicates whether the vehicle is stationary or moving",
+        "uuid": "db69549cc7375e919c2a2883b41cd19c"
+      },
+      "Media": {
+        "type": "branch",
+        "children": {},
+        "description": "Media service data.",
+        "uuid": "b778b6c07b055eae9f0a51d64c5b3bf3"
+      },
+      "OBD": {
+        "type": "branch",
+        "children": {
+          "EGRError": {
+            "type": "sensor",
+            "datatype": "uint8",
+            "unit": "percent",
+            "description": "PID 2D - Exhaust gas recirculation (EGR) error",
+            "uuid": "80a7000c5c7b5444b5571a26264061e5"
+          },
+          "AcceleratorPositionF": {
+            "unit": "percent",
+            "type": "sensor",
+            "description": "PID 4B - Accelerator pedal position F",
+            "uuid": "95f5c2a209a857ff930e2f8e32ac2d3f",
+            "datatype": "uint8"
+          },
+          "CoolantTemperature": {
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "celsius",
+            "description": "PID 05 - Coolant temperature",
+            "uuid": "824892cdc72d5f92a38ef3136576edc8"
+          },
+          "TimingAdvance": {
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "degrees",
+            "description": "PID 0E - Time advance",
+            "uuid": "35533b7e327d5f839b17c932b630767c"
+          },
+          "EngineSpeed": {
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "rpm",
+            "description": "PID 0C - Engine speed measured as rotations per minute",
+            "uuid": "b682eea93b3e5874ab3b52e95a1fad37"
+          },
+          "ControlModuleVoltage": {
+            "type": "sensor",
+            "datatype": "float",
+            "description": "PID 42 - Control module voltage",
+            "unit": "V",
+            "uuid": "59e072b932605ffc88a299c874d885c4"
+          },
+          "CommandedEVAP": {
+            "type": "sensor",
+            "unit": "percent",
+            "description": "PID 2E - Commanded evaporative purge (EVAP) valve",
+            "uuid": "5e6295d04a9159b88f4698b561b86842",
+            "datatype": "uint8"
+          },
+          "FuelRailPressureAbsolute": {
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "kpa",
+            "description": "PID 59 - Absolute fuel rail pressure",
+            "uuid": "83c88b13d30153949eeca1b1180a9061"
+          },
+          "EVAPVaporPressure": {
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "pa",
+            "description": "PID 32 - Evaporative purge (EVAP) system pressure",
+            "uuid": "70b5dae2ffd0561eab73efed8ad2f0ad"
+          },
+          "RunTimeMIL": {
+            "type": "sensor",
+            "datatype": "uint32",
+            "unit": "min",
+            "description": "PID 4D - Run time with MIL on",
+            "uuid": "555604a484535f60adf8894a6bd895b6"
+          },
+          "ShortTermO2Trim2": {
+            "type": "sensor",
+            "datatype": "uint8",
+            "unit": "percent",
+            "description": "PID 57 - Short term secondary O2 trim - Bank 2",
+            "uuid": "c8b962f8990e51d294621408ceaa21d9"
+          },
+          "LongTermFuelTrim1": {
+            "min": -100,
+            "description": "PID 07 - Long Term (learned) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer",
+            "uuid": "1c203b11667150f0b4ee1be26a60c084",
+            "type": "sensor",
+            "datatype": "int8",
+            "max": 100,
+            "unit": "percent"
+          },
+          "RelativeThrottlePosition": {
+            "type": "sensor",
+            "datatype": "uint8",
+            "unit": "percent",
+            "description": "PID 45 - Relative throttle position",
+            "uuid": "54ecf7dd671c5053aac4bc1bb061d64b"
+          },
+          "ThrottlePositionC": {
+            "type": "sensor",
+            "datatype": "uint8",
+            "unit": "percent",
+            "description": "PID 48 - Absolute throttle position C",
+            "uuid": "06f162dc00a85f628f9d5d1bc952665c"
+          },
+          "LongTermFuelTrim2": {
+            "min": -100,
+            "unit": "percent",
+            "description": "PID 09 - Long Term (learned) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer",
+            "uuid": "b02aff2efce05632b5694a256e5b9ec7",
+            "type": "sensor",
+            "datatype": "int8",
+            "max": 100
+          },
+          "EVAPVaporPressureAlternate": {
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "pa",
+            "description": "PID 54 - Alternate evaporative purge (EVAP) system pressure",
+            "uuid": "68eaba3c79975d61bc35b92cd3e5e8d0"
+          },
+          "HybridBatteryRemaining": {
+            "type": "sensor",
+            "unit": "percent",
+            "description": "PID 5B - Remaining life of hybrid battery",
+            "uuid": "c9517b6243df5e8d8f3aa3e57f71ec37",
+            "datatype": "uint8"
+          },
+          "CommandedEGR": {
+            "type": "sensor",
+            "datatype": "uint8",
+            "unit": "percent",
+            "description": "PID 2C - Commanded exhaust gas recirculation (EGR)",
+            "uuid": "0265890a4a695ee6952c9b9f565ddaa5"
+          },
+          "ShortTermFuelTrim2": {
+            "min": -100,
+            "description": "PID 08 - Short Term (immediate) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer",
+            "uuid": "53a39620773a523a8182169027169ec2",
+            "type": "sensor",
+            "datatype": "int8",
+            "max": 100,
+            "unit": "percent"
+          },
+          "Catalyst": {
+            "type": "branch",
+            "children": {
+              "Bank1": {
+                "type": "branch",
+                "children": {
+                  "Temperature1": {
+                    "type": "sensor",
+                    "datatype": "float",
+                    "unit": "celsius",
+                    "description": "PID 3C - Catalyst temperature from bank 1, sensor 1",
+                    "uuid": "5a770f13939e5d069682d408f160a895"
+                  },
+                  "Temperature2": {
+                    "type": "sensor",
+                    "datatype": "float",
+                    "unit": "celsius",
+                    "description": "PID 3E - Catalyst temperature from bank 1, sensor 2",
+                    "uuid": "ca9419a5d23b5937af23b51d823722fa"
+                  }
+                },
+                "description": "Catalyst bank 1 signals",
+                "uuid": "0c3aaf014ba95b938b639d4202ef8b25"
+              },
+              "Bank2": {
+                "type": "branch",
+                "children": {
+                  "Temperature1": {
+                    "type": "sensor",
+                    "datatype": "float",
+                    "description": "PID 3D - Catalyst temperature from bank 2, sensor 1",
+                    "unit": "celsius",
+                    "uuid": "011658e4ee89502c9a33877c92dbf888"
+                  },
+                  "Temperature2": {
+                    "type": "sensor",
+                    "datatype": "float",
+                    "unit": "celsius",
+                    "description": "PID 3F - Catalyst temperature from bank 2, sensor 2",
+                    "uuid": "f60c68f0ebca5fcf97086ce04e16d661"
+                  }
+                },
+                "description": "Catalyst bank 2 signals",
+                "uuid": "9a20459754755146a3b9608bf6384835"
+              }
+            },
+            "description": "Catalyst signals",
+            "uuid": "4eb0b191d6445de081f3f3f759af31c2"
+          },
+          "AmbientAirTemperature": {
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "celsius",
+            "description": "PID 46 - Ambient air temperature",
+            "uuid": "220a90f183c5583ea8b8b6454d774517"
+          },
+          "MAP": {
+            "min": 0,
+            "description": "PID 0B - Intake manifold pressure",
+            "uuid": "335991b1b53f56f097fea7b05d4db83b",
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "kpa"
+          },
+          "EVAPVaporPressureAbsolute": {
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "kpa",
+            "description": "PID 53 - Absolute evaporative purge (EVAP) system pressure",
+            "uuid": "ef188a1e1a1356f7bc425081e3e00805"
+          },
+          "WarmupsSinceDTCClear": {
+            "type": "sensor",
+            "datatype": "uint16",
+            "description": "PID 30 - Number of warm-ups since codes cleared",
+            "uuid": "a63ba60721785fc591e3dd067c4dc2ae"
+          },
+          "DistanceWithMIL": {
+            "type": "sensor",
+            "datatype": "uint32",
+            "unit": "km",
+            "description": "PID 21 - Distance traveled with MIL on",
+            "uuid": "a9a522e343f25522b08f11e81bb91349"
+          },
+          "FuelStatus": {
+            "type": "sensor",
+            "datatype": "string",
+            "description": "PID 03 - Fuel status",
+            "uuid": "15fa2f3f667a5f5786eda5c83435ef16"
+          },
+          "FuelLevel": {
+            "type": "sensor",
+            "datatype": "uint8",
+            "unit": "percent",
+            "description": "PID 2F - Fuel level in the fuel tank",
+            "uuid": "fd39813424ee5cd08c44714b35697287"
+          },
+          "FuelPressure": {
+            "min": 0,
+            "description": "PID 0A - Fuel pressure",
+            "uuid": "34e6b0689f025d7b9bfa1fc49bb30c0f",
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "kpa"
+          },
+          "RunTime": {
+            "type": "sensor",
+            "datatype": "uint32",
+            "unit": "s",
+            "description": "PID 1F - Engine run time",
+            "uuid": "acf70773752256d1a227ab48257624b5"
+          },
+          "PidsC": {
+            "type": "sensor",
+            "datatype": "uint32",
+            "description": "PID 40 - Bit array of the supported pids 41 to 60",
+            "uuid": "7c3a3f0ecc5d593aa996892668afe4b0"
+          },
+          "Status": {
+            "type": "branch",
+            "children": {
+              "IgnitionType": {
+                "type": "sensor",
+                "datatype": "string",
+                "description": "Type of the ignition for ICE - spark = spark plug ignition, compression = self-igniting (Diesel engines)",
+                "uuid": "7ffd71caac8e5bd18f93366afdfe534d",
+                "enum": [
+                  "spark",
+                  "compression"
+                ]
+              },
+              "MIL": {
+                "type": "sensor",
+                "datatype": "boolean",
+                "description": "Malfunction Indicator Light (MIL) False = Off, True = On",
+                "uuid": "5cfe08ba057c56b18ea55978d33f2390"
+              },
+              "DTCCount": {
+                "type": "sensor",
+                "datatype": "uint32",
+                "description": "Number of sensor Trouble Codes (DTC)",
+                "uuid": "4afdf65e788c5f69baf682597e69fb67"
+              }
+            },
+            "description": "PID 01 - OBD status",
+            "uuid": "474f58e593ee5bfebbb9c6ce4a453f96"
+          },
+          "DriveCycleStatus": {
+            "type": "branch",
+            "children": {
+              "IgnitionType": {
+                "type": "sensor",
+                "datatype": "string",
+                "description": "Type of the ignition for ICE - spark = spark plug ignition, compression = self-igniting (Diesel engines)",
+                "uuid": "1aeb7b6d025f5a8693104824abaa1c49",
+                "enum": [
+                  "spark",
+                  "compression"
+                ]
+              },
+              "MIL": {
+                "type": "sensor",
+                "datatype": "boolean",
+                "description": "Malfunction Indicator Light (MIL) - False = Off, True = On",
+                "uuid": "7ce9859f21205e7f8876a10331fe6be7"
+              },
+              "DTCCount": {
+                "type": "sensor",
+                "datatype": "uint32",
+                "description": "Number of sensor Trouble Codes (DTC)",
+                "uuid": "312856f746ff560e8098c19196964d3b"
+              }
+            },
+            "description": "PID 41 - OBD status for the current drive cycle",
+            "uuid": "5215e28062f75154822789b8a5f30630"
+          },
+          "DistanceSinceDTCClear": {
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "km",
+            "description": "PID 31 - Distance traveled since codes cleared",
+            "uuid": "0da628e2c69d561eb86216ddcb6e7b2a"
+          },
+          "ShortTermO2Trim1": {
+            "type": "sensor",
+            "datatype": "uint8",
+            "unit": "percent",
+            "description": "PID 55 - Short term secondary O2 trim - Bank 1",
+            "uuid": "be7ed33a854557ba802da0c51f9f4564"
+          },
+          "O2WR": {
+            "type": "branch",
+            "children": {
+              "Sensor5": {
+                "type": "branch",
+                "children": {
+                  "Current": {
+                    "unit": "A",
+                    "type": "sensor",
+                    "description": "PID 38 - Lambda current for wide range/band oxygen sensor 5",
+                    "uuid": "40494cb5826554929f5ecadd5b9173fd",
+                    "datatype": "float"
+                  },
+                  "Voltage": {
+                    "type": "sensor",
+                    "datatype": "float",
+                    "unit": "V",
+                    "description": "PID 28 - Lambda voltage for wide range/band oxygen sensor 5",
+                    "uuid": "699c4db2439f51af8465e823687018b8"
+                  }
+                },
+                "description": "Wide range/band oxygen senor 5",
+                "uuid": "01c4160d39af5db59c66db844646195e"
+              },
+              "Sensor6": {
+                "type": "branch",
+                "children": {
+                  "Current": {
+                    "type": "sensor",
+                    "datatype": "float",
+                    "unit": "A",
+                    "description": "PID 39 - Lambda current for wide range/band oxygen sensor 6",
+                    "uuid": "06a38b6b4784545bb637279e96d48eb5"
+                  },
+                  "Voltage": {
+                    "type": "sensor",
+                    "datatype": "float",
+                    "unit": "V",
+                    "description": "PID 29 - Lambda voltage for wide range/band oxygen sensor 6",
+                    "uuid": "304c181c76d55c3abe75382a935c7bde"
+                  }
+                },
+                "description": "Wide range/band oxygen senor 6",
+                "uuid": "cff12c30bde957798daaa3a91758b48b"
+              },
+              "Sensor2": {
+                "type": "branch",
+                "children": {
+                  "Current": {
+                    "type": "sensor",
+                    "datatype": "float",
+                    "unit": "A",
+                    "description": "PID 35 - Lambda current for wide range/band oxygen sensor 2",
+                    "uuid": "442ab33180ca5028a37a487056ba4a51"
+                  },
+                  "Voltage": {
+                    "type": "sensor",
+                    "datatype": "float",
+                    "unit": "V",
+                    "description": "PID 25 - Lambda voltage for wide range/band oxygen sensor 2",
+                    "uuid": "a784675c3b765d42ad023d8ee412be26"
+                  }
+                },
+                "description": "Wide range/band oxygen senor 2",
+                "uuid": "079f9960f75d5f399df7ff86fcea8f0c"
+              },
+              "Sensor3": {
+                "type": "branch",
+                "children": {
+                  "Current": {
+                    "type": "sensor",
+                    "datatype": "float",
+                    "unit": "A",
+                    "description": "PID 36 - Lambda current for wide range/band oxygen sensor 4",
+                    "uuid": "c942468e349e5aaebde4d90ee0bc3814"
+                  },
+                  "Voltage": {
+                    "type": "sensor",
+                    "datatype": "float",
+                    "unit": "V",
+                    "description": "PID 26 - Lambda voltage for wide range/band oxygen sensor 3",
+                    "uuid": "a78f7621a3f75df2adc1dc940219834a"
+                  }
+                },
+                "description": "Wide range/band oxygen senor 3",
+                "uuid": "a8a83d3e33f9584b824088e830bcbaec"
+              },
+              "Sensor7": {
+                "type": "branch",
+                "children": {
+                  "Current": {
+                    "type": "sensor",
+                    "datatype": "float",
+                    "unit": "A",
+                    "description": "PID 3A - Lambda current for wide range/band oxygen sensor 7",
+                    "uuid": "6ed46315325d540eb95c86ec61eef8e4"
+                  },
+                  "Voltage": {
+                    "type": "sensor",
+                    "datatype": "float",
+                    "unit": "V",
+                    "description": "PID 2A - Lambda voltage for wide range/band oxygen sensor 7",
+                    "uuid": "0ad1d79dcce65c00ac48421b5b54ca0e"
+                  }
+                },
+                "description": "Wide range/band oxygen senor 7",
+                "uuid": "44459df1f25f5d43a07b00f2bad65ef5"
+              },
+              "Sensor4": {
+                "type": "branch",
+                "children": {
+                  "Current": {
+                    "unit": "A",
+                    "type": "sensor",
+                    "description": "PID 37 - Lambda current for wide range/band oxygen sensor 4",
+                    "uuid": "f16b31fde63a516db04cb44feaa7c27b",
+                    "datatype": "float"
+                  },
+                  "Voltage": {
+                    "type": "sensor",
+                    "datatype": "float",
+                    "unit": "V",
+                    "description": "PID 27 - Lambda voltage for wide range/band oxygen sensor 4",
+                    "uuid": "abeca90ba22d5c32a34ee907cedf3192"
+                  }
+                },
+                "description": "Wide range/band oxygen senor 4",
+                "uuid": "bb67047ddad158ba98876a6a87d02e97"
+              },
+              "Sensor1": {
+                "type": "branch",
+                "children": {
+                  "Current": {
+                    "type": "sensor",
+                    "datatype": "float",
+                    "unit": "A",
+                    "description": "PID 34 - Lambda current for wide range/band oxygen sensor 1",
+                    "uuid": "bb4c70d9d2ae56c8a9a3be446db6f54c"
+                  },
+                  "Voltage": {
+                    "type": "sensor",
+                    "datatype": "float",
+                    "unit": "V",
+                    "description": "PID 24 - Lambda voltage for wide range/band oxygen sensor 1",
+                    "uuid": "396251cbfa5a57ffb1dd743298dfcdf9"
+                  }
+                },
+                "description": "Wide range/band oxygen senor 1",
+                "uuid": "496074cec04a5260b60fd39bb7ed1479"
+              },
+              "Sensor8": {
+                "type": "branch",
+                "children": {
+                  "Current": {
+                    "unit": "A",
+                    "type": "sensor",
+                    "description": "PID 3B - Lambda current for wide range/band oxygen sensor 8",
+                    "uuid": "96de3c3b036c50c2978ab2aa490d4d9e",
+                    "datatype": "float"
+                  },
+                  "Voltage": {
+                    "type": "sensor",
+                    "unit": "V",
+                    "description": "PID 2B - Lambda voltage for wide range/band oxygen sensor 8",
+                    "uuid": "ab7d6c739f025782bba640e58123f0c8",
+                    "datatype": "float"
+                  }
+                },
+                "description": "Wide range/band oxygen senor 8",
+                "uuid": "b8865e72055d52a086f6935d5c188cc1"
+              }
+            },
+            "description": "Wide range/band oxygen sensors",
+            "uuid": "a439f2bc16575318afe20d0bc6a8cacf"
+          },
+          "ThrottleActuator": {
+            "type": "sensor",
+            "datatype": "uint8",
+            "unit": "percent",
+            "description": "PID 4C - Commanded throttle actuator",
+            "uuid": "49a19905a1005ee3abe0c0a84d7112d1"
+          },
+          "PidsB": {
+            "type": "sensor",
+            "datatype": "uint32",
+            "description": "PID 20 - Bit array of the supported pids 21 to 40",
+            "uuid": "00193c560a0a5525baa45681e07b50f6"
+          },
+          "AbsoluteLoad": {
+            "type": "sensor",
+            "datatype": "uint8",
+            "unit": "percent",
+            "description": "PID 43 - Absolute load value",
+            "uuid": "b3dd889a42ce5de9a7904b7196ae325c"
+          },
+          "CommandedEquivalenceRatio": {
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "ratio",
+            "description": "PID 44 - Commanded equivalence ratio",
+            "uuid": "104e39e816f65fa791d0afa24603292b"
+          },
+          "PidsA": {
+            "type": "sensor",
+            "datatype": "uint32",
+            "description": "PID 00 - Bit array of the supported pids 01 to 20",
+            "uuid": "ba1c1b9034955d2d97249c3b4516beef"
+          },
+          "FuelRailPressureVac": {
+            "type": "sensor",
+            "unit": "kpa",
+            "description": "PID 22 - Fuel rail pressure relative to vacuum",
+            "uuid": "b3b0adf44aa3572fa07e7434993e6458",
+            "datatype": "float"
+          },
+          "FreezeDTC": {
+            "type": "sensor",
+            "datatype": "string",
+            "description": "PID 02 - DTC that triggered the freeze frame",
+            "uuid": "5b87fae8dda4522aae209ae528960782"
+          },
+          "ThrottlePositionB": {
+            "type": "sensor",
+            "datatype": "uint8",
+            "unit": "percent",
+            "description": "PID 47 - Absolute throttle position B",
+            "uuid": "701712a565ed5bf8b6630487a7152c87"
+          },
+          "EngineLoad": {
+            "min": 0,
+            "description": "PID 04 - Engine load in percent - 0 = no load, 100 = full load",
+            "uuid": "a8fda8a1b4c6534aa49c447bafc1c700",
+            "type": "sensor",
+            "datatype": "uint8",
+            "max": 100,
+            "unit": "percent"
+          },
+          "FuelType": {
+            "type": "sensor",
+            "datatype": "string",
+            "description": "PID 51 - Fuel type",
+            "uuid": "aefb45bdd8035904b0c8f3ffcedc53a9"
+          },
+          "AirStatus": {
+            "type": "sensor",
+            "datatype": "string",
+            "description": "PID 12 - Secondary air status",
+            "uuid": "548f65bf59ed505a86dfaa1c33342e4d"
+          },
+          "ThrottlePosition": {
+            "min": 0,
+            "unit": "percent",
+            "description": "PID 11 - Throttle position - 0 = closed throttle, 100 = open throttle",
+            "uuid": "ec1d372020205bb4a846a014b33801e1",
+            "type": "sensor",
+            "datatype": "uint8",
+            "max": 100
+          },
+          "O2": {
+            "type": "branch",
+            "children": {
+              "Bank1": {
+                "type": "branch",
+                "children": {
+                  "Sensor4": {
+                    "type": "branch",
+                    "children": {
+                      "Voltage": {
+                        "type": "sensor",
+                        "datatype": "float",
+                        "unit": "V",
+                        "description": "PID 17 - Sensor voltage",
+                        "uuid": "3ddcc11605bd57958a6ab7040980388b"
+                      }
+                    },
+                    "description": "Oxygen sensor",
+                    "uuid": "0596ec385da658578217391e0ecaa5af"
+                  },
+                  "Sensor1": {
+                    "type": "branch",
+                    "children": {
+                      "Voltage": {
+                        "type": "sensor",
+                        "datatype": "float",
+                        "unit": "V",
+                        "description": "PID 14 - Sensor voltage",
+                        "uuid": "3d9d4bfdf5bb506891612b7dbc044b81"
+                      }
+                    },
+                    "description": "Oxygen sensor",
+                    "uuid": "40e2cdba61b15e1e99405857e4d32b6e"
+                  },
+                  "Sensor2": {
+                    "type": "branch",
+                    "children": {
+                      "Voltage": {
+                        "type": "sensor",
+                        "datatype": "float",
+                        "unit": "V",
+                        "description": "PID 15 - Sensor voltage",
+                        "uuid": "2bb19dbdf64d5d438e19d220606565cf"
+                      }
+                    },
+                    "description": "Oxygen sensor",
+                    "uuid": "32311bd7b77158a2b3622ca3075ce34a"
+                  },
+                  "Sensor3": {
+                    "type": "branch",
+                    "children": {
+                      "Voltage": {
+                        "type": "sensor",
+                        "datatype": "float",
+                        "unit": "V",
+                        "description": "PID 16 - Sensor voltage",
+                        "uuid": "7749913f77ec5f84942e5d4bad97b398"
+                      }
+                    },
+                    "description": "Oxygen sensor",
+                    "uuid": "4640f8cb80de54bab3036cf51af9a8f8"
+                  }
+                },
+                "description": "Oxygen sensors on bank 1, at most 4 sensors per bank",
+                "uuid": "6371b791e2905d57ad4591c1d542cefd"
+              },
+              "Bank2": {
+                "type": "branch",
+                "children": {
+                  "Sensor4": {
+                    "type": "branch",
+                    "children": {
+                      "Voltage": {
+                        "type": "sensor",
+                        "datatype": "float",
+                        "unit": "V",
+                        "description": "PID 1B - Sensor voltage",
+                        "uuid": "3ec914477d23598f9f5915d14db5852e"
+                      }
+                    },
+                    "description": "Oxygen sensor",
+                    "uuid": "a09790dbb4485a6e8ed737b1357878a8"
+                  },
+                  "Sensor1": {
+                    "type": "branch",
+                    "children": {
+                      "Voltage": {
+                        "type": "sensor",
+                        "datatype": "float",
+                        "unit": "V",
+                        "description": "PID 18 - Sensor voltage",
+                        "uuid": "ff69ddba35d9527b91ee1f02f8e547e7"
+                      }
+                    },
+                    "description": "Oxygen sensor",
+                    "uuid": "22a8aa72fd70503f82bd0c14a35770fc"
+                  },
+                  "Sensor2": {
+                    "type": "branch",
+                    "children": {
+                      "Voltage": {
+                        "unit": "V",
+                        "type": "sensor",
+                        "description": "PID 19 - Sensor voltage",
+                        "uuid": "8b621b72cff35ece97b9b0b1918f4c82",
+                        "datatype": "float"
+                      }
+                    },
+                    "description": "Oxygen sensor",
+                    "uuid": "75bb1896ea305fc89d9b05021c3cadbd"
+                  },
+                  "Sensor3": {
+                    "type": "branch",
+                    "children": {
+                      "Voltage": {
+                        "type": "sensor",
+                        "datatype": "float",
+                        "description": "PID 1A - Sensor voltage",
+                        "unit": "V",
+                        "uuid": "5b2ccfaf65265ce6a81dcd9d76e42224"
+                      }
+                    },
+                    "description": "Oxygen sensor",
+                    "uuid": "e6839701a84c59a3ae377abee2890567"
+                  }
+                },
+                "description": "Oxygen sensors on bank 2, at most 4 sensors per bank",
+                "uuid": "9bfda6c2db5b59a0930a8685c74c29ba"
+              }
+            },
+            "description": "PID 13 - Presence of oxygen sensors for the banks",
+            "uuid": "31f007df72af50f0925d2b4647682a4d"
+          },
+          "AuxInputStatus": {
+            "type": "sensor",
+            "datatype": "boolean",
+            "description": "PID 1E - Auxiliary input status (power take off)",
+            "uuid": "6e0b531c320e50d59fb46e98df17620a"
+          },
+          "AcceleratorPositionE": {
+            "type": "sensor",
+            "datatype": "uint8",
+            "unit": "percent",
+            "description": "PID 4A - Accelerator pedal position E",
+            "uuid": "4104e7fc25355e25b4522d233565d84b"
+          },
+          "FuelRate": {
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "l/h",
+            "description": "PID 5E - Engine fuel rate",
+            "uuid": "4ab7c2b710f95ceb9c7d01d19dabac38"
+          },
+          "TimeSinceDTCCleared": {
+            "type": "sensor",
+            "datatype": "uint32",
+            "unit": "min",
+            "description": "PID 4E - Time since trouble codes cleared",
+            "uuid": "66ea3984a2585dcdaaf6452eef835c0d"
+          },
+          "MaxMAF": {
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "g/s",
+            "description": "PID 50 - Maximum flow for mass air flow sensor",
+            "uuid": "e21826479f715ee7afe8dc485f109b11"
+          },
+          "IntakeTemp": {
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "celsius",
+            "description": "PID 0F - Intake temperature",
+            "uuid": "7c108305178b5854b430a23e125588bd"
+          },
+          "EthanolPercent": {
+            "type": "sensor",
+            "datatype": "uint8",
+            "unit": "percent",
+            "description": "PID 52 - Percentage of ethanol in the fuel",
+            "uuid": "a207e7de17e1520c894b412af6f2522c"
+          },
+          "Speed": {
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "km/h",
+            "description": "PID 0D - Vehicle speed",
+            "uuid": "91ed0bb43eb054759813cd784b071764"
+          },
+          "O2Alt": {
+            "type": "branch",
+            "children": {
+              "Bank1": {
+                "type": "branch",
+                "children": {
+                  "Sensor4": {
+                    "type": "branch",
+                    "children": {},
+                    "description": "Alternate oxygen sensor",
+                    "uuid": "cf55906c0eb9588fa33298e10ca1ca9b"
+                  },
+                  "Sensor1": {
+                    "type": "branch",
+                    "children": {},
+                    "description": "Alternate oxygen sensor",
+                    "uuid": "340eb17fd0445c8486f9b3bc20bb0946"
+                  },
+                  "Sensor2": {
+                    "type": "branch",
+                    "children": {},
+                    "description": "Alternate oxygen sensor",
+                    "uuid": "d80aedb9fbdb538aa3dddce56258c960"
+                  },
+                  "Sensor3": {
+                    "type": "branch",
+                    "children": {},
+                    "description": "Alternate oxygen sensor",
+                    "uuid": "e13e1993d48c5d6e8897b1c27311ae7f"
+                  }
+                },
+                "description": "Alternate oxygen sensors on bank 1, at most 4 sensors per bank",
+                "uuid": "788b4a8ac02457eab7beb1036eedc388"
+              },
+              "Bank2": {
+                "type": "branch",
+                "children": {
+                  "Sensor4": {
+                    "type": "branch",
+                    "children": {},
+                    "description": "Alternate oxygen sensor",
+                    "uuid": "513c442582515c2d85b1f7e33d891d41"
+                  },
+                  "Sensor1": {
+                    "type": "branch",
+                    "children": {},
+                    "description": "Alternate oxygen sensor",
+                    "uuid": "58d80358757859bda05da760c28a1706"
+                  },
+                  "Sensor2": {
+                    "type": "branch",
+                    "children": {},
+                    "description": "Alternate oxygen sensor",
+                    "uuid": "6b4b0c27cf9e5c999ef973578175cc25"
+                  },
+                  "Sensor3": {
+                    "type": "branch",
+                    "children": {},
+                    "description": "Alternate oxygen sensor",
+                    "uuid": "0e8d6a2dd18554e89cfa73fb4c302c9d"
+                  }
+                },
+                "description": "Alternate oxygen sensors on bank 2, at most 4 sensors per bank",
+                "uuid": "63ebe2202700525a926f5a1457b4fdb8"
+              }
+            },
+            "description": "PID 1D - Presence of alternate oxygen sensors for the banks",
+            "uuid": "f8c067bfefd65a5fbb0cd7c7525eb430"
+          },
+          "RelativeAcceleratorPosition": {
+            "type": "sensor",
+            "datatype": "uint8",
+            "description": "PID 5A - Relative accelerator pedal position",
+            "unit": "percent",
+            "uuid": "e25de9aacad3549285b4fb234f10be8f"
+          },
+          "OilTemperature": {
+            "type": "sensor",
+            "datatype": "uint8",
+            "unit": "celsius",
+            "description": "PID 5C - Engine oil temperature",
+            "uuid": "ef3dfc11085d5077b363b1a4e8e4a84e"
+          },
+          "LongTermO2Trim2": {
+            "type": "sensor",
+            "datatype": "uint8",
+            "unit": "percent",
+            "description": "PID 58 - Long term secondary O2 trim - Bank 2",
+            "uuid": "e579f6c930605b389e8ce2d7edd92999"
+          },
+          "ShortTermFuelTrim1": {
+            "min": -100,
+            "description": "PID 06 - Short Term (immediate) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer",
+            "uuid": "569c983874335fb392d4e82a002654cb",
+            "type": "sensor",
+            "datatype": "int8",
+            "max": 100,
+            "unit": "percent"
+          },
+          "MAF": {
+            "type": "sensor",
+            "datatype": "int16",
+            "unit": "g/s",
+            "description": "PID 10 - Grams of air drawn into engine per second",
+            "uuid": "f3acdf89fb865313883d5d3126f15518"
+          },
+          "FuelInjectionTiming": {
+            "type": "sensor",
+            "datatype": "int16",
+            "unit": "degrees",
+            "description": "PID 5D - Fuel injection timing",
+            "uuid": "ab4869446f5357d6936838983e1b8949"
+          },
+          "BarometricPressure": {
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "kpa",
+            "description": "PID 33 - Barometric pressure",
+            "uuid": "1966bfff4d235767bfd9a21afb445ac7"
+          },
+          "FuelRailPressureDirect": {
+            "type": "sensor",
+            "datatype": "float",
+            "unit": "kpa",
+            "description": "PID 23 - Fuel rail pressure direct inject",
+            "uuid": "039cb7bf1a8356a98d09eaf4fc029fe9"
+          },
+          "LongTermO2Trim1": {
+            "type": "sensor",
+            "datatype": "uint8",
+            "unit": "percent",
+            "description": "PID 56 - Long term secondary O2 trim - Bank 1",
+            "uuid": "9a9586e29a02567e9920cb9b0aa2e3f5"
+          },
+          "AcceleratorPositionD": {
+            "type": "sensor",
+            "datatype": "uint8",
+            "unit": "percent",
+            "description": "PID 49 - Accelerator pedal position D",
+            "uuid": "7e63256081ac5a7b8a28a6fa3c2c2ff9"
+          }
+        },
+        "description": "OBD data.",
+        "uuid": "7ad7c512ed5d52c8b31944d2d47a4bc3"
+      },
+      "AmbientAirTemperature": {
+        "type": "sensor",
+        "datatype": "float",
+        "unit": "celsius",
+        "description": "Ambient air temperature",
+        "uuid": "2ffcbc2e6ea75dd991e3ae80b29a1d85"
+      },
+      "accelerationTime": {
+        "type": "attribute",
+        "datatype": "int16",
+        "unit": "s",
+        "description": "The time needed to accelerate the vehicle from a given start velocity to a given target velocity.",
+        "uuid": "a0dfbb5fa9c052018addeb48d64d4c6a"
+      },
+      "Speed": {
+        "min": -250,
+        "unit": "km/h",
+        "description": "Vehicle speed, as sensed by the gearbox.",
+        "uuid": "efe50798638d55fab18ab7d43cc490e9",
+        "type": "sensor",
+        "datatype": "int32",
+        "max": 250
+      },
+      "TravelledDistance": {
+        "type": "sensor",
+        "datatype": "float",
+        "unit": "km",
+        "description": "Odometer reading",
+        "uuid": "90be9d7b0ac15b75a83027ea3b73b65b"
+      },
+      "TripMeterReading": {
+        "type": "sensor",
+        "datatype": "float",
+        "unit": "km",
+        "description": "Current trip meter reading",
+        "uuid": "81f51ebfe29c591190171d7b96e1c948"
+      },
+      "IdleTime": {
+        "type": "sensor",
+        "datatype": "uint32",
+        "unit": "s",
+        "description": "Accumulated idle time in seconds.",
+        "uuid": "97be8abc404f5c15a78e7edc6296ab04"
+      },
+      "ADAS": {
+        "type": "branch",
+        "children": {
+          "CruiseControl": {
+            "type": "branch",
+            "children": {
+              "Error": {
+                "type": "sensor",
+                "datatype": "boolean",
+                "description": "Indicates if cruise control system incurred and error condition. True = Error. False = NoError.",
+                "uuid": "586d4d35a28956c794c7d56a9cedf544"
+              },
+              "SpeedSet": {
+                "type": "actuator",
+                "datatype": "int32",
+                "description": "Set cruise control speed in kilometers per hour",
+                "unit": "km/h",
+                "uuid": "b3f3a53ccd825e4da5cb1226f94dc005"
+              },
+              "IsActive": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Indicates if cruise control system is enabled. True = Enabled. False = Disabled.",
+                "uuid": "78ab5ce923dc5aa1a6622bcb948e1561"
+              }
+            },
+            "description": "Signals from Cruise Control system",
+            "uuid": "c4d751cf74f9576dbba3cc820991c1fb"
+          },
+          "TCS": {
+            "type": "branch",
+            "children": {
+              "Error": {
+                "type": "sensor",
+                "datatype": "boolean",
+                "description": "Indicates if TCS incurred an error condition. True = Error. False = No Error.",
+                "uuid": "44910b2e5ce75a768d79a01ee3d0723f"
+              },
+              "IsActive": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Indicates if TCS is enabled. True = Enabled. False = Disabled.",
+                "uuid": "6789de7a67515e7f9bcdd18623954074"
+              },
+              "IsEngaged": {
+                "type": "sensor",
+                "datatype": "boolean",
+                "description": "Indicates if TCS is currently regulating traction. True = Engaged. False = Not Engaged.",
+                "uuid": "b33d70009ad5589fbffe17fa7e827242"
+              }
+            },
+            "description": "Traction Control System signals",
+            "uuid": "0572e9f6b1aa5fb5b2f68086aff05073"
+          },
+          "ABS": {
+            "type": "branch",
+            "children": {
+              "Error": {
+                "type": "sensor",
+                "datatype": "boolean",
+                "description": "Indicates if ABS incurred an error condition. True = Error. False = No Error.",
+                "uuid": "cd2b0e86aa1f5021a9bb7f6bda1cbe0f"
+              },
+              "IsActive": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Indicates if ABS is enabled. True = Enabled. False = Disabled.",
+                "uuid": "433b7039199357178688197d6e264725"
+              },
+              "IsEngaged": {
+                "type": "sensor",
+                "datatype": "boolean",
+                "description": "Indicates if ABS is currently regulating brake pressure. True = Engaged. False = Not Engaged.",
+                "uuid": "6dd21979a2225e31940dc2ece1aa9a04"
+              }
+            },
+            "description": "Antilock Braking System signals",
+            "uuid": "219270ef27c4531f874bbda63743b330"
+          },
+          "LaneDepartureDetection": {
+            "type": "branch",
+            "children": {
+              "Error": {
+                "type": "sensor",
+                "datatype": "boolean",
+                "description": "Indicates if lane departure system incurred an error condition. True = Error. False = No Error.",
+                "uuid": "92e47dedb3d354779352d83ba3de96be"
+              },
+              "IsActive": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Indicates if lane departure detection system is enabled. True = Enabled. False = Disabled.",
+                "uuid": "ba683882dbea575b9540118aa914acd8"
+              },
+              "Warning": {
+                "type": "sensor",
+                "datatype": "boolean",
+                "description": "Indicates if lane departure detection registered a lane departure",
+                "uuid": "06ba0445af5258d8a9c953979afb7c05"
+              }
+            },
+            "description": "Signals from Land Departure Detection System",
+            "uuid": "e45f33fdcf245f11981b2f201ee8281a"
+          },
+          "ObstacleDetection": {
+            "type": "branch",
+            "children": {
+              "Error": {
+                "type": "sensor",
+                "datatype": "boolean",
+                "description": "Indicates if obstacle sensor system incurred an error condition. True = Error. False = No Error.",
+                "uuid": "2a68c1f1f290510097b6aac71a23f305"
+              },
+              "IsActive": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Indicates if obstacle sensor system is enabled. True = Enabled. False = Disabled.",
+                "uuid": "7262cd48bdad59f3a0d93d9cb592d4f8"
+              },
+              "DistanceToObject": {
+                "instances": [
+                  [
+                    "Front",
+                    "Rear"
+                  ],
+                  [
+                    "Left",
+                    "Right"
+                  ]
+                ],
+                "unit": "m",
+                "description": "Distance to object in meters",
+                "uuid": "a693ac5a4b675860bb7c0e2e810f1f1f",
+                "type": "sensor",
+                "datatype": "uint16"
+              }
+            },
+            "description": "Signals form Obstacle Sensor System",
+            "uuid": "e7b6d81631cc5ac584d027d4c1a66cb5"
+          },
+          "ESC": {
+            "type": "branch",
+            "children": {
+              "Error": {
+                "type": "sensor",
+                "datatype": "boolean",
+                "description": "Indicates if ESC incurred an error condition. True = Error. False = No Error.",
+                "uuid": "c3852de5d6305918b8de1fb11a1a5da5"
+              },
+              "IsActive": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Indicates if ECS is enabled. True = Enabled. False = Disabled.",
+                "uuid": "70b769baed285c3897979639d13bafd3"
+              },
+              "IsEngaged": {
+                "type": "sensor",
+                "datatype": "boolean",
+                "description": "Indicates if ESC is currently regulating vehicle stability. True = Engaged. False = Not Engaged.",
+                "uuid": "2088953a28385353a9d46b3a3dc11cac"
+              }
+            },
+            "description": "Electronic Stability Control System signals",
+            "uuid": "636b4586ce7854b4b270a2f3b6c0af4f"
+          }
+        },
+        "description": "All Advanced Driver Assist Systems data.",
+        "uuid": "14c2b2e1297b513197d320a5ce58f42e"
+      },
+      "cargoVolume": {
+        "min": 0,
+        "description": "The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.",
+        "uuid": "1b7c5f7c8ac952168cd2e89b3e9cd841",
+        "type": "attribute",
+        "datatype": "int16",
+        "max": 100,
+        "unit": "l"
+      },
+      "emissionsCO2": {
+        "type": "attribute",
+        "datatype": "int16",
+        "unit": "g/km",
+        "description": "The CO2 emissions in g/km.",
+        "uuid": "5dc70045865b5bba9260945b28f737ff"
+      },
+      "Body": {
+        "type": "branch",
+        "children": {
+          "Trunk": {
+            "type": "branch",
+            "children": {
+              "IsOpen": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Trunk open or closed. True = Open. False = Closed",
+                "uuid": "58c8eb023b4b5db794705d7ce63e2d75"
+              },
+              "IsLocked": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Is trunk locked or unlocked. True = Locked. False = Unlocked.",
+                "uuid": "d89db9a83c0955c3a049c529072d397f"
+              }
+            },
+            "description": "Trunk status",
+            "uuid": "a584c6a5aa235cb88ac686f8d72a1dff"
+          },
+          "Horn": {
+            "type": "branch",
+            "children": {
+              "IsActive": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Horn active or inactive. True = Active. False = Inactive.",
+                "uuid": "ba20deed9314525bb9d552a2b787fb20"
+              }
+            },
+            "description": "Horn signals",
+            "uuid": "09c76633887f52268b960740eb969c89"
+          },
+          "Hood": {
+            "type": "branch",
+            "children": {
+              "IsOpen": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "hood open or closed. True = Open. False = Closed",
+                "uuid": "890aa3359e1a579288af1cf8e6b5b71f"
+              }
+            },
+            "description": "Hood status",
+            "uuid": "84510652bf915bbe8bf5f477aab2b44a"
+          },
+          "Mirrors": {
+            "type": "branch",
+            "children": {
+              "Pan": {
+                "type": "actuator",
+                "datatype": "int8",
+                "unit": "percent",
+                "description": "Mirror pan as a percent. 0 = Center Position. 100 = Fully Left Position. -100 = Fully Right Position.",
+                "uuid": "2a41f1d4e10d563e9324cc2866c802ac"
+              },
+              "Tilt": {
+                "type": "actuator",
+                "datatype": "int8",
+                "unit": "percent",
+                "description": "Mirror tilt as a percent. 0 = Center Position. 100 = Fully Upward Position. -100 = Fully Downward Position.",
+                "uuid": "43e018799cc3534993194fb46ad14084"
+              },
+              "Heating": {
+                "type": "branch",
+                "children": {
+                  "Status": {
+                    "type": "actuator",
+                    "datatype": "boolean",
+                    "description": "Mirror Heater on or off. True = Heater On. False = Heater Off.",
+                    "uuid": "41efa8c8a4b55a94b415b7331ee47991"
+                  }
+                },
+                "description": "Mirror heater signals",
+                "uuid": "728db4175f335a9984efc49d5843f3d4"
+              }
+            },
+            "instances": [
+              "Left",
+              "Right"
+            ],
+            "description": "All mirrors",
+            "uuid": "a4ea618914885a239ef5fa62c671a800"
+          },
+          "Lights": {
+            "type": "branch",
+            "children": {
+              "IsParkingOn": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Is parking light on",
+                "uuid": "510402bd9355529dbddc2b9724db6957"
+              },
+              "IsRearFogOn": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Is rear fog light on",
+                "uuid": "54818024ac4853d49003e8e10bd8f4f6"
+              },
+              "IsBackupOn": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Is backup (reverse) light on",
+                "uuid": "48c0a466b59555f6bf0c01fcf7a3c42c"
+              },
+              "IsLowBeamOn": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Is low beam on",
+                "uuid": "917d51175b675ad89cf86e07e33b44ec"
+              },
+              "IsFrontFogOn": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Is front fog light on",
+                "uuid": "9ad70db68408503a8506d09c7c92a13f"
+              },
+              "IsHazardOn": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Are hazards on",
+                "uuid": "148eee65b2de53fab88fc261246d6639"
+              },
+              "IsLeftIndicatorOn": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Is left indicator flashing",
+                "uuid": "98c6f3d400d65a6da5fef8e22c16133a"
+              },
+              "IsBrakeOn": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Is brake light on",
+                "uuid": "7b8b136ec8aa59cb8773aa3c455611a4"
+              },
+              "IsRightIndicatorOn": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Is right indicator flashing",
+                "uuid": "df301b25233e5f20b039bc9304c148d2"
+              },
+              "IsHighBeamOn": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Is high beam on",
+                "uuid": "80a627e5b81356dabe557ff4102f634f"
+              },
+              "IsRunningOn": {
+                "type": "actuator",
+                "datatype": "boolean",
+                "description": "Are running lights on",
+                "uuid": "cd28479b1a5c5088a52e8d9cd7f22dcf"
+              }
+            },
+            "description": "All lights",
+            "uuid": "399d1ec14d6f55bb825e078a801bde55"
+          },
+          "Windshield": {
+            "type": "branch",
+            "children": {
+              "WasherFluid": {
+                "type": "branch",
+                "children": {
+                  "Level": {
+                    "type": "sensor",
+                    "datatype": "uint8",
+                    "unit": "percent",
+                    "description": "Washer fluid level as a percent. 0 = Empty. 100 = Full.",
+                    "uuid": "c0521a96f9af56268a28510686685ffc"
+                  },
+                  "LevelLow": {
+                    "type": "sensor",
+                    "datatype": "boolean",
+                    "description": "Low level indication for washer fluid. True = Level Low. False = Level OK.",
+                    "uuid": "7b580c841aa75466936ed9968513aca8"
+                  }
+                },
+                "description": "Front windshield washer fluid signals",
+                "uuid": "0fe9c77972605734b9fa977fab442f49"
+              },
+              "Wiping": {
+                "type": "branch",
+                "children": {
+                  "Status": {
+                    "type": "actuator",
+                    "datatype": "string",
+                    "description": "Front wiper status",
+                    "uuid": "3844504998db5a74a29452f51c912bb0",
+                    "enum": [
+                      "off",
+                      "slow",
+                      "medium",
+                      "fast",
+                      "interval",
+                      "rainsensor"
+                    ]
+                  }
+                },
+                "description": "Front windshield wiper signals",
+                "uuid": "03e323e227a653ada7fd1da6eb6ef164"
+              },
+              "Heating": {
+                "type": "branch",
+                "children": {
+                  "Status": {
+                    "type": "actuator",
+                    "datatype": "boolean",
+                    "description": "Front windshield heater status. 0 - off, 1 - on",
+                    "uuid": "85b029a9ebb952b78121e0a0fde9d330"
+                  }
+                },
+                "description": "Front windshield heater signals",
+                "uuid": "60c81c574e315f2688996e2c920597eb"
+              }
+            },
+            "instances": [
+              "Front",
+              "Rear"
+            ],
+            "description": "Windshield signals",
+            "uuid": "73efba535dcb5032b9edc43406b050b8"
+          },
+          "RefuelPosition": {
+            "type": "attribute",
+            "datatype": "string",
+            "description": "Location of the fuel cap or charge port",
+            "uuid": "53ef90a851fa57f0810d50238e852f02",
+            "enum": [
+              "front_left",
+              "front_right",
+              "middle_left",
+              "middle_right",
+              "rear_left",
+              "rear_right"
+            ]
+          },
+          "ChargingPort": {
+            "type": "branch",
+            "children": {
+              "Type": {
+                "default": "unknown",
+                "description": "Indicates the primary charging type fitted to the vehicle",
+                "uuid": "fffa718e15fb50c285fb33e99116eddc",
+                "enum": [
+                  "unknown",
+                  "Not_Fitted",
+                  "AC_Type_1",
+                  "AC_Type_2",
+                  "AC_GBT",
+                  "AC_DC_Type_1_Combo",
+                  "AC_DC_Type_2_Combo",
+                  "DC_GBT",
+                  "DC_Chademo"
+                ],
+                "type": "attribute",
+                "datatype": "string"
+              }
+            },
+            "description": "Collects Information about the charging port",
+            "uuid": "187537d025a358db843f7e92765ff4b9"
+          },
+          "BodyType": {
+            "type": "attribute",
+            "datatype": "string",
+            "description": "Body type code as defined by ISO 3779",
+            "uuid": "6253412513105deea63b1d424117fd88"
+          },
+          "Raindetection": {
+            "type": "branch",
+            "children": {
+              "intensity": {
+                "type": "sensor",
+                "datatype": "uint8",
+                "unit": "percent",
+                "description": "Rain intensity. 0 = Dry, No Rain. 100 = Covered.",
+                "uuid": "02828e9e5f7b593fa2160e7b6dbad157"
+              }
+            },
+            "description": "Rainsensor signals",
+            "uuid": "f16759f3dcfb5be4832e962da29ebd6c"
+          }
+        },
+        "description": "All body components.",
+        "uuid": "bd2854e6a9165c5698ce8dd9f0438ecc"
+      },
+      "DriveTime": {
+        "type": "sensor",
+        "datatype": "uint32",
+        "unit": "s",
+        "description": "Accumulated drive time in seconds.",
+        "uuid": "f707495fbe155b7fa109dbb69c021850"
+      },
+      "AverageSpeed": {
+        "min": -250,
+        "description": "Average speed for the current trip",
+        "uuid": "43a489636a665c3abb99b63174eb552b",
+        "type": "sensor",
+        "datatype": "int32",
+        "max": 250,
+        "unit": "km/h"
+      }
+    },
+    "description": "High-level vehicle data.",
+    "uuid": "ccc825f94139544dbb5f4bfd033bece6"
+  }
+}
